@@ -252,28 +252,28 @@
         <h3>開賣監控・表單自動化</h3>
         <p>自動進場、選位、填表，OCR 辨識驗證碼。把開賣瞬間的填表手速自動化。</p>
         <div class="meta">最終跑出：自動完成購票表單流程　·　第一次成果：約 90 分鐘</div>
-        <div class="pr">NT$3,999</div>
+        <div class="pr">NT$1,999</div>
       </div>
       <div class="mod" data-name="蝦皮爬蟲" onclick="toggle(this)">
         <div class="ck">✓</div><div class="ic">🛒</div>
         <h3>資料擷取・競品查價</h3>
         <p>自動抓公開售價、整理成表。盯市場行情不用一頁頁人工看。</p>
         <div class="meta">最終跑出：競品價格自動彙整表　·　合法用途：市場研究</div>
-        <div class="pr">NT$3,999</div>
+        <div class="pr">NT$1,999</div>
       </div>
       <div class="mod" data-name="自動發文" onclick="toggle(this)">
         <div class="ck">✓</div><div class="ic">📢</div>
         <h3>內容自動發布</h3>
         <p>用真人點選方式自動發文（非 API），多平台都能套，省下每天貼文時間。</p>
         <div class="meta">最終跑出：自動把內容發到平台　·　最受歡迎入門模組</div>
-        <div class="pr">NT$3,999</div>
+        <div class="pr">NT$1,999</div>
       </div>
       <div class="mod" data-name="桌面自動化" onclick="toggle(this)">
         <div class="ck">✓</div><div class="ic">🎮</div>
         <h3>畫面辨識・桌面自動化</h3>
         <p>用畫面辨識做重複的桌面操作（含手遊日常掛機的實驗示範）。</p>
         <div class="meta">最終跑出：自動執行重複桌面流程　·　進階整合題</div>
-        <div class="pr">NT$3,999</div>
+        <div class="pr">NT$1,999</div>
       </div>
     </div>
     <div class="pricebox">
@@ -282,7 +282,7 @@
         <div class="selname" id="selname">開賣監控・表單自動化</div>
         <div class="save" id="save"></div>
         <div class="ladder">
-          <span>1 門 3,999</span><span>2 門折 1,000</span><span>3 門折 1,500</span><span>4 門全包折 2,000・最划算</span>
+          <span>1 門 1,999（原3,999）</span><span>2 門 3,499</span><span>3 門 4,999</span><span>全包 5,999・最划算</span>
         </div>
       </div>
       <div class="amt">
@@ -372,6 +372,7 @@
     <h2>還在觀望？先免費做出一個成果</h2>
     <p class="lead" style="max-width:640px;margin:8px auto 26px">不是只給你看幾段試看影片——而是讓你<b style="color:#fff">親手完成一個 20–30 分鐘的迷你自動化</b>，先確認你的電腦與學習方式適合，再決定要不要報名。</p>
     <a class="btn big" href="#" id="freebtn">免費試做基礎版 →</a>
+    <p style="margin-top:18px;color:var(--mut)">想再認真一點？<a id="tasterbtn" href="#" style="color:var(--accent2);font-weight:700;border-bottom:1px solid var(--accent2)">用 NT$990 體驗包先付費試一個模組 →</a></p>
   </div>
 </section>
 
@@ -449,7 +450,16 @@
 </div>
 
 <script>
-  var BASE=3999, DISC={1:0,2:1000,3:1500,4:2000};
+  // 上市低價（限時）：依「選幾門」算；LIST=原價錨定
+  var PRICE={1:1999,2:3499,3:4999,4:5999};
+  var LIST ={1:3999,2:7998,3:11997,4:13996};
+  // Recur Hosted Checkout 付款連結（依模組數）
+  var LINK ={
+    1:'https://buy.recur.tw/uP0zUpdi1vbSjInZ',
+    2:'https://buy.recur.tw/Ja3d5qKNoPlEXndw',
+    3:'https://buy.recur.tw/WNPyr3UeawN6i7Ym',
+    4:'https://buy.recur.tw/2nHP0urC6t60WRnG'
+  };
   function calc(){
     var on=document.querySelectorAll('.mod.on'); var n=on.length;
     var names=Array.from(on).map(function(m){return m.dataset.name});
@@ -457,22 +467,24 @@
         Save=document.getElementById('save'),Name=document.getElementById('selname'),
         Sticky=document.getElementById('stickyprice');
     if(n===0){Name.textContent='（尚未選擇）';Now.textContent='—';Old.textContent='';Save.textContent='';Sticky.textContent='請選模組';return;}
-    var list=BASE*n,disc=DISC[n]||0,total=list-disc;
+    var total=PRICE[n],list=LIST[n],save=list-total;
     Name.textContent=names.join(' ＋ ')+'（'+n+' 門）';
     Now.textContent='NT$'+total.toLocaleString(); Sticky.textContent='NT$'+total.toLocaleString();
-    if(disc>0){Old.textContent='NT$'+list.toLocaleString();Save.textContent='已折 NT$'+disc.toLocaleString()+(n===4?'（全包最划算）':'');}
-    else{Old.textContent='';Save.textContent='再加一門省 1,000 起';}
+    Old.textContent='NT$'+list.toLocaleString();
+    Save.textContent='限時省 NT$'+save.toLocaleString()+(n===4?'（全包最划算）':'');
   }
   function toggle(el){el.classList.toggle('on');calc();}
   calc();
 
-  // === Recur 金流掛鉤（商品建好後填）；回呼用 onPaymentComplete(status==='SUCCEEDED') ===
-  var RECUR_CHECKOUT_URL='';
+  // Recur Hosted Checkout：依選的模組數導到對應付款連結
   function openCheckout(){
-    var on=document.querySelectorAll('.mod.on');
-    if(on.length===0){alert('先在上方勾選至少一個模組 🙂');document.getElementById('choose').scrollIntoView();return;}
-    if(RECUR_CHECKOUT_URL){window.location.href=RECUR_CHECKOUT_URL;}else{alert('報名即將開放，金流串接中 🙏');}
+    var n=document.querySelectorAll('.mod.on').length;
+    if(n===0){alert('先在上方勾選至少一個模組 🙂');document.getElementById('choose').scrollIntoView();return;}
+    window.location.href=LINK[n];
   }
+  // 990 體驗包
+  var TASTER='https://buy.recur.tw/LGh1u0WwWIIGVZvE';
+  var tb=document.getElementById('tasterbtn'); if(tb){tb.href=TASTER;}
   document.getElementById('freebtn').addEventListener('click',function(e){
     if(this.getAttribute('href')==='#'){e.preventDefault();alert('免費試做版連結待填 🙂');}
   });
