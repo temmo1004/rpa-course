@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>巴斯的自動化實戰｜讓 AI 接手你每天重複的電腦工作</title>
+<meta name="description" content="不會寫程式，也能讓電腦替你完成重複工作。從下第一句 AI 指令開始，最快 90 分鐘做出你的第一個自動化流程。連紅字怎麼修都錄給你看，還有真人協助。">
+<meta property="og:title" content="巴斯的自動化實戰｜讓 AI 接手你每天重複的電腦工作">
+<meta property="og:description" content="零基礎也能把重複的電腦工作交給 AI。搶票、查價、發文、刷手遊四大實戰場景，連下指令與除錯全程錄給你看。">
+<meta property="og:image" content="img/cover.png">
+<meta property="og:type" content="website">
+
+<!-- TODO: 換成你的 GTM 容器 ID（你本來就有 GTM 經驗）-->
+<!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXXX');</script> -->
+<!-- TODO: Meta Pixel — 換成你的 Pixel ID，再行銷導購靠它 -->
+<!-- <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','PIXEL_ID');fbq('track','PageView');</script> -->
+<style>
+  :root{
+    --bg:#0d0b1f; --bg2:#15122e; --card:#1b1740; --line:#2c2752;
+    --txt:#eceaff; --mut:#a7a2d6; --accent:#7c5cff; --accent2:#22d3ee; --gold:#ffd166;
+    --grad:linear-gradient(120deg,#7c5cff,#b06cff 50%,#22d3ee);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,"PingFang TC","Noto Sans TC",system-ui,sans-serif;
+    background:var(--bg);color:var(--txt);line-height:1.7;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  a{color:inherit;text-decoration:none}
+  .btn{display:inline-block;background:var(--grad);color:#fff;font-weight:800;
+    padding:16px 34px;border-radius:999px;font-size:18px;border:0;cursor:pointer;
+    box-shadow:0 10px 30px rgba(124,92,255,.45);transition:transform .15s,box-shadow .15s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(124,92,255,.6)}
+  .btn.big{padding:20px 48px;font-size:21px}
+  .btn.ghost{background:transparent;border:1px solid var(--accent);box-shadow:none;color:#cbbcff}
+  .ph{outline:1px dashed #5a4fb0;outline-offset:3px}
+  .phtag{display:inline-block;font-size:11px;color:#8b86c8;background:#231d4d;border:1px solid var(--line);padding:2px 8px;border-radius:6px;margin-bottom:8px}
+
+  header.hero{position:relative;overflow:hidden;
+    background:radial-gradient(1200px 600px at 70% -10%,rgba(124,92,255,.35),transparent),
+               radial-gradient(900px 500px at 10% 10%,rgba(34,211,238,.18),transparent),var(--bg)}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding:58px 0 48px}
+  .badge{display:inline-block;background:rgba(124,92,255,.15);border:1px solid var(--accent);
+    color:#cbbcff;font-weight:700;font-size:13px;padding:6px 14px;border-radius:999px;margin-bottom:18px}
+  h1{font-size:43px;line-height:1.25;font-weight:900;letter-spacing:-.5px}
+  h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{color:var(--mut);font-size:18px;margin:18px 0 24px}
+  .hero img{width:100%;border-radius:18px;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+  .trust{display:flex;gap:18px;flex-wrap:wrap;color:var(--mut);font-size:14px;margin-top:18px}
+  .trust b{color:var(--txt)}
+  .statbar{display:flex;gap:30px;flex-wrap:wrap;margin-top:22px}
+  .statbar .s b{font-size:24px;color:#fff;display:block}
+  .statbar .s span{font-size:13px;color:var(--mut)}
+
+  section{padding:58px 0}
+  h2{font-size:31px;font-weight:900;margin-bottom:8px;letter-spacing:-.3px}
+  .lead{color:var(--mut);font-size:17px;margin-bottom:30px}
+  .alt{background:var(--bg2)}
+
+  .ba{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .ba .col{padding:26px}
+  .ba .before{background:#1a1430}
+  .ba .after{background:#19213a}
+  .ba h4{font-size:15px;margin-bottom:14px;color:var(--mut)}
+  .ba ul{list-style:none;display:grid;gap:10px}
+  .ba li{padding-left:26px;position:relative;font-size:15px}
+  .ba .before li:before{content:"✕";position:absolute;left:0;color:#ff6b8a}
+  .ba .after li:before{content:"✓";position:absolute;left:0;color:var(--accent2)}
+
+  .why{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .why .b{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .why .b h4{font-size:16px;margin-bottom:6px}
+  .why .b p{color:var(--mut);font-size:14px}
+  .flow{margin-top:24px;text-align:center;font-weight:800;font-size:18px;color:#fff}
+  .flow span{display:inline-block;background:#231d4d;border:1px solid var(--accent);border-radius:999px;padding:8px 16px;margin:4px}
+
+  /* 模組選擇器 */
+  .modgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .mod{position:relative;background:var(--card);border:2px solid var(--line);border-radius:16px;
+    padding:22px 22px 22px 58px;cursor:pointer;transition:border-color .15s,background .15s}
+  .mod:hover{border-color:var(--accent)}
+  .mod.on{border-color:var(--accent2);background:#221c4d}
+  .mod .ck{position:absolute;left:18px;top:22px;width:26px;height:26px;border-radius:8px;
+    border:2px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:16px;color:transparent}
+  .mod.on .ck{background:var(--accent2);border-color:var(--accent2);color:#06121a}
+  .mod .ic{font-size:26px}
+  .mod h3{font-size:19px;margin:6px 0 4px}
+  .mod p{color:var(--mut);font-size:14px}
+  .mod .meta{color:#8f8ac4;font-size:12.5px;margin-top:8px}
+  .mod .pr{position:absolute;right:20px;top:22px;color:var(--mut);font-weight:700;font-size:14px}
+  .pricebox{margin-top:26px;background:var(--card);border:1px solid var(--line);border-radius:18px;
+    padding:26px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}
+  .pricebox .label{color:var(--mut);font-size:14px}
+  .pricebox .selname{font-weight:700;margin-top:2px}
+  .pricebox .save{color:var(--gold);font-weight:700;font-size:14px;margin-top:6px;min-height:20px}
+  .pricebox .amt{text-align:right}
+  .pricebox .old{color:var(--mut);text-decoration:line-through;font-size:17px}
+  .pricebox .now{font-size:38px;font-weight:900}
+  .pricebox .cta{grid-column:1 / -1;text-align:center;margin-top:6px}
+  .ladder{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;color:var(--mut);font-size:13px}
+  .ladder span{background:#15122e;border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+
+  .journey{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;counter-reset:step}
+  .journey .j{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;position:relative}
+  .journey .j b{display:block;font-size:13px;color:var(--accent2);margin-bottom:6px}
+  .journey .j p{font-size:14px;color:var(--mut)}
+
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px}
+  .card .ic{font-size:28px;margin-bottom:10px}
+  .card h3{font-size:16px;margin-bottom:6px}
+  .card p{color:var(--mut);font-size:14px}
+
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  .split img{width:100%;border-radius:16px;border:1px solid var(--line)}
+  .ulist{list-style:none;display:grid;gap:12px}
+  .ulist li{padding-left:30px;position:relative;color:var(--mut)}
+  .ulist li:before{content:"✓";position:absolute;left:0;color:var(--accent2);font-weight:900}
+  .ulist b{color:var(--txt)}
+
+  .wall{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .wall .w{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .wall .w .h{height:120px;border-radius:10px;background:#221c4d;display:flex;align-items:center;justify-content:center;color:#6f69aa;font-size:13px;margin-bottom:12px}
+  .wall .w b{font-size:15px}.wall .w p{color:var(--mut);font-size:13.5px;margin-top:4px}
+
+  .teacher{display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:center;
+    background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px}
+  .teacher .av{width:120px;height:120px;border-radius:50%;background:var(--grad);
+    display:flex;align-items:center;justify-content:center;font-size:46px;font-weight:900}
+
+  details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 22px;margin-bottom:12px}
+  details summary{font-weight:700;cursor:pointer;font-size:16px;list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  details[open] summary{color:var(--accent2)}
+  details p{color:var(--mut);margin-top:12px}
+
+  .legal{background:#15122e;border:1px solid var(--line);border-radius:14px;padding:24px;color:var(--mut);font-size:13.5px}
+  .legal b{color:var(--txt)}
+  .guarantee{background:#19213a;border:1px solid #2c5a6a;border-radius:14px;padding:24px;display:flex;gap:18px;align-items:center}
+  .guarantee .ic{font-size:40px}
+  .ctafinal{text-align:center;background:radial-gradient(800px 400px at 50% 0%,rgba(124,92,255,.35),transparent),var(--bg2)}
+  footer{padding:40px 0;color:var(--mut);font-size:13px;text-align:center;border-top:1px solid var(--line)}
+
+  .sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;display:none;
+    background:rgba(20,17,40,.92);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:12px 16px}
+  .sticky .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px}
+  .sticky .p{font-weight:900;font-size:20px}
+
+  @media(max-width:860px){
+    .hero-grid,.split,.why,.ba{grid-template-columns:1fr}
+    .modgrid,.cards,.wall{grid-template-columns:1fr}
+    .journey{grid-template-columns:1fr 1fr}
+    h1{font-size:31px}
+    .teacher{grid-template-columns:1fr;text-align:center}.teacher .av{margin:0 auto}
+    .pricebox{grid-template-columns:1fr}.pricebox .amt{text-align:left}
+    .sticky{display:block}
+  }
+</style>
+</head>
+<body>
+
+<!-- 1. HERO：單一母命題 -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="badge">🤖 巴斯的自動化實戰　零基礎友善</span>
+      <h1>不會寫程式，<br>也能讓 AI <span class="g">接手你每天重複的電腦工作</span></h1>
+      <p class="sub">從下第一句 AI 指令開始，最快 <b style="color:#fff">90 分鐘</b>做出你的第一個自動化流程。不背語法、不只看展示——連跑出紅字怎麼修，我都錄給你看，還有真人協助你修到成功。</p>
+      <p><a class="btn big" href="#free">免費試做一次 →</a>　<a class="btn ghost" href="#choose">看模組與價格</a></p>
+      <div class="statbar">
+        <div class="s ph"><span class="phtag">待填</span><b>＿＿＋</b><span>學員人數</span></div>
+        <div class="s ph"><b>＿.＿</b><span>學員評分</span></div>
+        <div class="s"><b>90 分</b><span>第一個成果</span></div>
+      </div>
+    </div>
+    <div><img src="img/cover.png" alt="自動化實戰課程"></div>
+  </div>
+</header>
+
+<!-- 2. 結果展示 Before/After -->
+<section>
+  <div class="wrap">
+    <h2>你買的不是更多影片，是把這段工作永久從待辦清單拿掉</h2>
+    <p class="lead">同一件事，以前 vs 學完之後。</p>
+    <div class="ba">
+      <div class="col before">
+        <h4>現在的你</h4>
+        <ul>
+          <li>每天重複複製、貼上、改格式</li>
+          <li>AI 給了程式碼，卻不會跑</li>
+          <li>看到一排紅字就放棄</li>
+          <li>想接案，但沒有作品</li>
+          <li>每次都從零開始</li>
+        </ul>
+      </div>
+      <div class="col after">
+        <h4>學完之後</h4>
+        <ul>
+          <li>一鍵執行完整流程，自己跑</li>
+          <li>知道怎麼叫 AI 把它修到能跑</li>
+          <li>能截錯誤、逐步排查</li>
+          <li>有可展示的實戰作品</li>
+          <li>有可修改的程式碼模板</li>
+        </ul>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:22px">
+      <span class="phtag">待填</span>
+      <span class="ph" style="display:inline-block;padding:14px 20px;border-radius:12px;color:#8f8ac4">▶ 放一支 15–30 秒「人工操作 vs 一鍵自動」並排 Demo 動圖／影片</span>
+    </p>
+  </div>
+</section>
+
+<!-- 3. 痛點分眾 -->
+<section class="alt">
+  <div class="wrap">
+    <h2>這堂課是為了誰</h2>
+    <p class="lead">不是泛稱「所有上班族」，看看哪個是你。</p>
+    <div class="cards">
+      <div class="card"><div class="ic">🧑‍💼</div><h3>每天在重複操作的上班族</h3><p>複製、整理、貼文、填表⋯⋯同一套流程一天做好幾次。</p></div>
+      <div class="card"><div class="ic">🧑‍💻</div><h3>想接自動化案的自由工作者</h3><p>知道有需求，但手上沒有能展示的作品。</p></div>
+      <div class="card"><div class="ic">🏪</div><h3>沒預算請工程師的小資創業</h3><p>很多重複工作只能自己硬幹，吃掉做生意的時間。</p></div>
+      <div class="card"><div class="ic">🌱</div><h3>零程式背景、想學 AI 的人</h3><p>怕「我不會寫程式」，但想跟上用 AI 做事的浪潮。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. 為什麼一般 AI 教學沒用 -->
+<section>
+  <div class="wrap">
+    <h2>為什麼你看了一堆 AI 教學，還是做不出東西</h2>
+    <div class="why">
+      <div class="b"><h4>只教 Prompt</h4><p>背了一堆咒語，卻沒有真的把東西跑起來。</p></div>
+      <div class="b"><h4>只給程式碼</h4><p>環境不一樣就跑不動，紅字一出現就卡死。</p></div>
+      <div class="b"><h4>只剪成功畫面</h4><p>影片裡都很順，輪到你出錯時沒人教你怎麼辦。</p></div>
+      <div class="b"><h4>純影片平台</h4><p>買完卡住只能自己猜，最後課就放著不看了。</p></div>
+    </div>
+    <div class="flow">
+      我的教法：<span>下指令</span>→<span>執行</span>→<span>出錯</span>→<span>修正</span>→<span>改成你自己的版本</span>
+    </div>
+  </div>
+</section>
+
+<!-- 5. 四大模組 + 選擇器 -->
+<section class="alt" id="choose">
+  <div class="wrap">
+    <h2>四種實戰場景，任你挑</h2>
+    <p class="lead">每個模組都是「同一套自動化能力」的不同應用。一門 NT$3,999，買越多折越多。</p>
+    <div class="modgrid">
+      <div class="mod on" data-name="搶票機器人" onclick="toggle(this)">
+        <div class="ck">✓</div><div class="ic">🎟️</div>
+        <h3>開賣監控・表單自動化</h3>
+        <p>自動進場、選位、填表，OCR 辨識驗證碼。把開賣瞬間的填表手速自動化。</p>
+        <div class="meta">最終跑出：自動完成購票表單流程　·　第一次成果：約 90 分鐘</div>
+        <div class="pr">NT$3,999</div>
+      </div>
+      <div class="mod" data-name="蝦皮爬蟲" onclick="toggle(this)">
+        <div class="ck">✓</div><div class="ic">🛒</div>
+        <h3>資料擷取・競品查價</h3>
+        <p>自動抓公開售價、整理成表。盯市場行情不用一頁頁人工看。</p>
+        <div class="meta">最終跑出：競品價格自動彙整表　·　合法用途：市場研究</div>
+        <div class="pr">NT$3,999</div>
+      </div>
+      <div class="mod" data-name="自動發文" onclick="toggle(this)">
+        <div class="ck">✓</div><div class="ic">📢</div>
+        <h3>內容自動發布</h3>
+        <p>用真人點選方式自動發文（非 API），多平台都能套，省下每天貼文時間。</p>
+        <div class="meta">最終跑出：自動把內容發到平台　·　最受歡迎入門模組</div>
+        <div class="pr">NT$3,999</div>
+      </div>
+      <div class="mod" data-name="桌面自動化" onclick="toggle(this)">
+        <div class="ck">✓</div><div class="ic">🎮</div>
+        <h3>畫面辨識・桌面自動化</h3>
+        <p>用畫面辨識做重複的桌面操作（含手遊日常掛機的實驗示範）。</p>
+        <div class="meta">最終跑出：自動執行重複桌面流程　·　進階整合題</div>
+        <div class="pr">NT$3,999</div>
+      </div>
+    </div>
+    <div class="pricebox">
+      <div>
+        <div class="label">你選的模組</div>
+        <div class="selname" id="selname">開賣監控・表單自動化</div>
+        <div class="save" id="save"></div>
+        <div class="ladder">
+          <span>1 門 3,999</span><span>2 門折 1,000</span><span>3 門折 1,500</span><span>4 門全包折 2,000・最划算</span>
+        </div>
+      </div>
+      <div class="amt">
+        <div class="old" id="old"></div>
+        <div class="now" id="now">NT$3,999</div>
+      </div>
+      <div class="cta"><button class="btn big" onclick="openCheckout()">立即報名 →</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. 學習旅程 -->
+<section>
+  <div class="wrap">
+    <h2>一條清楚的學習路徑</h2>
+    <p class="lead">不是四個神奇腳本，是一套可重複使用的能力。</p>
+    <div class="journey">
+      <div class="j"><b>STEP 1</b><p>看懂一個自動化任務</p></div>
+      <div class="j"><b>STEP 2</b><p>用 AI 產生第一版</p></div>
+      <div class="j"><b>STEP 3</b><p>在自己電腦上跑起來</p></div>
+      <div class="j"><b>STEP 4</b><p>學會處理錯誤</p></div>
+      <div class="j"><b>STEP 5</b><p>改成自己的工作流程</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. 真實操作錄影（你的差異化武器）-->
+<section class="alt">
+  <div class="wrap split">
+    <img src="img/pizza.png" alt="連下指令與除錯都錄給你看">
+    <div>
+      <h2>連「下指令」和「出錯怎麼修」都完整錄給你</h2>
+      <p class="lead" style="margin-bottom:18px">多數 AI 課只剪成功片段。零基礎最怕的不是看不懂，是影片跑得動、你的電腦卻一排紅字。</p>
+      <ul class="ulist">
+        <li>我實際<b>怎麼跟 AI 下指令</b>（原話保留）</li>
+        <li>AI 第一次<b>回答不完美</b>時怎麼接</li>
+        <li>執行<b>出現紅字</b>時，怎麼貼給 AI、怎麼修</li>
+        <li>修正後<b>成功執行</b>，再改成你自己的用途</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 8. 學員作品牆（待填）-->
+<section>
+  <div class="wrap">
+    <h2>學員做出了什麼 <span class="phtag">待填・累積 8–12 個再大量投廣告</span></h2>
+    <p class="lead">每個案例統一格式：原背景 → 卡在哪 → 選哪模組 → 多久跑成功 → 後來改成什麼用途。</p>
+    <div class="wall">
+      <div class="w ph"><div class="h">▶ 成果畫面/影片</div><b>學員 A（零基礎）</b><p>原本卡在⋯ → 選了⋯模組 → ＿天跑成功 → 後來拿來⋯</p></div>
+      <div class="w ph"><div class="h">▶ 成果畫面/影片</div><b>學員 B</b><p>（成果證明 > 操作錄影 > 對話截圖 > 星評 > 老師自述）</p></div>
+      <div class="w ph"><div class="h">▶ 成果畫面/影片</div><b>學員 C</b><p>自動化前後耗時對比最有說服力</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. 你能獲得什麼（價值堆疊，改寫成用途）-->
+<section class="alt">
+  <div class="wrap">
+    <h2>報名後你拿到的，每一樣都有用途</h2>
+    <div class="cards">
+      <div class="card"><div class="ic">📝</div><h3>圖文故障排除手冊</h3><p>跟著影片做的完整筆記，常見紅字直接查、邊看邊對。</p></div>
+      <div class="card"><div class="ic">💻</div><h3>可修改的程式碼模板</h3><p>不用從空白檔開始，直接改成你自己的版本。</p></div>
+      <div class="card"><div class="ic">♾️</div><h3>可循環播放的教學網站</h3><p>忘記時回到精確步驟，學到會為止。</p></div>
+      <div class="card"><div class="ic">🙋</div><h3>真人卡關支援</h3><p>避免買完停在第一個錯誤就放棄（服務規格見下）。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. 「有人可以問」服務規格 SLA -->
+<section>
+  <div class="wrap">
+    <div class="guarantee">
+      <div class="ic">🛟</div>
+      <div>
+        <h3 style="font-size:20px;margin-bottom:6px">卡關不用自己猜——真人協助規格</h3>
+        <p style="color:var(--mut)">購課後加入專屬 Discord／LINE 群，把<b style="color:var(--txt)">錯誤截圖＋執行畫面＋程式碼</b>貼進來，<b style="color:var(--txt)">平日 24 小時內</b>給你排查方向。
+        <span class="phtag">可加碼</span> 每週一次團體除錯診所、購課 30 天內一次 15 分鐘卡關健檢。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11. 免費試做 -->
+<section class="alt" id="free">
+  <div class="wrap" style="text-align:center">
+    <h2>還在觀望？先免費做出一個成果</h2>
+    <p class="lead" style="max-width:640px;margin:8px auto 26px">不是只給你看幾段試看影片——而是讓你<b style="color:#fff">親手完成一個 20–30 分鐘的迷你自動化</b>，先確認你的電腦與學習方式適合，再決定要不要報名。</p>
+    <a class="btn big" href="#" id="freebtn">免費試做基礎版 →</a>
+  </div>
+</section>
+
+<!-- 12. 講師 -->
+<section>
+  <div class="wrap">
+    <h2>誰在教</h2>
+    <div class="teacher">
+      <div class="av">巴</div>
+      <div>
+        <h3 style="font-size:22px;margin-bottom:6px">巴斯</h3>
+        <p style="color:var(--mut)">天天泡在程式與自動化裡、每天用超過 10 小時的實戰派。專長是把複雜的工程，翻成「沒有背景的人也聽得懂、做得出來」的步驟。<span class="phtag">待補</span> 我為哪些場景做過自動化、實際省下多少時間、維護多久、踩過哪些坑——因為我知道零基礎會在哪裡卡住。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 13. 最終 CTA -->
+<section class="ctafinal">
+  <div class="wrap">
+    <h2>選一個你最浪費時間的流程，今天就把它自動化</h2>
+    <p class="lead" style="max-width:560px;margin:8px auto 22px">四種實戰場景任選，買越多折越多。零基礎可學，附筆記、程式碼，還有真人能問。</p>
+    <a class="btn big" href="#choose">挑模組 · 看價格 →</a>
+  </div>
+</section>
+
+<!-- 14. 風險逆轉 -->
+<section>
+  <div class="wrap">
+    <div class="guarantee">
+      <div class="ic">✅</div>
+      <div>
+        <h3 style="font-size:20px;margin-bottom:6px">先試、再決定的雙重保障</h3>
+        <p style="color:var(--mut)"><b style="color:var(--txt)">① 免費基礎版先試跑</b>，確認你的電腦與學習方式適合。<b style="color:var(--txt)">② 購買後 7 日內、觀看未超過指定比例</b>，若設備不支援或內容不符需求，可申請退款。<span class="phtag">條款依你實際政策調整</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 15. FAQ -->
+<section class="alt">
+  <div class="wrap">
+    <h2>常見問題</h2>
+    <div style="margin-top:28px">
+      <details open><summary>我完全不會寫程式，可以嗎？</summary><p>可以。整套課就是教你「用 AI 寫」，連怎麼下指令都錄進去了，照著做就行。</p></details>
+      <details><summary>AI 回答跟影片不一樣怎麼辦？</summary><p>這正是這堂課的重點——我把「回答不同、出現紅字」時怎麼判斷、怎麼叫 AI 修正都錄進去了，還有真人能問。</p></details>
+      <details><summary>Windows / Mac 都能用嗎？需要再買別的工具嗎？</summary><p><span class="phtag">待填</span> 說明支援的系統版本、用到哪些 AI 工具、是否另需付費。</p></details>
+      <details><summary>平台改版、程式失效會更新嗎？</summary><p><span class="phtag">待填</span> 說明更新政策——這是自動化課最關鍵的購買疑慮，別藏在最後。</p></details>
+      <details><summary>價格怎麼算？</summary><p>一門 NT$3,999；兩門折 1,000、三門折 1,500、四門全包折 2,000。上方勾選會即時算給你看。</p></details>
+      <details><summary>可以拿去接案嗎？</summary><p>可以。課程會帶到怎麼把客戶的重複工作拆成自動化流程、怎麼做 Demo 與報價。</p></details>
+      <details><summary>這些合法嗎？會不會違反平台規範？</summary><p>課程教通用自動化技術、示範於練習與測試環境，且不教繞過驗證/反機器人/存取控制。請於合法且符合各平台服務條款範圍內使用，詳見下方聲明。</p></details>
+      <details><summary>買了能看多久？退費條件？</summary><p>教學網站可循環播放；退費依上方「雙重保障」與下方條款。</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- 16. 合規邊界（增加信任）-->
+<section>
+  <div class="wrap">
+    <div class="legal">
+      <b>教育與合法使用聲明</b><br>
+      本課程為自動化技術之教育課程，所有示範均於練習與測試環境進行。我們<b>不教授繞過驗證、反機器人或存取控制</b>機制；爬蟲模組以公開資料、合理頻率與研究用途為示範；桌面/遊戲模組為「畫面辨識與桌面自動化實驗」，不保證可用於特定遊戲；開賣監控模組著重提醒與表單流程自動化，不以破壞公平機制為目的。學員報名即同意：僅將所學用於合法、自用、且符合各網站與遊戲服務條款之用途；不得用於規避、破解或干擾任何真實售票系統（含《文化創意產業發展法》第10-1條、《運動產業發展法》相關規定）、大量購票囤票轉售，或違反《個人資料保護法》《著作權法》《刑法》妨害電腦使用罪章之規定。學員如自行用於違法或違反第三方條款之用途，所生一切責任概由學員自行承擔，與課程提供者及講師無涉。
+      <br><br><span class="phtag">建議</span> 若有公司登記，於此放<b>統一編號</b>並加一則「會不會是詐騙？」FAQ —— 高客單課程的信任關鍵。
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">© 2026 巴斯的自動化實戰　|　本頁為技術教學，請於合法範圍內使用</div></footer>
+
+<div class="sticky">
+  <div class="wrap">
+    <div class="p" id="stickyprice">NT$3,999</div>
+    <button class="btn" onclick="openCheckout()">立即報名</button>
+  </div>
+</div>
+
+<script>
+  var BASE=3999, DISC={1:0,2:1000,3:1500,4:2000};
+  function calc(){
+    var on=document.querySelectorAll('.mod.on'); var n=on.length;
+    var names=Array.from(on).map(function(m){return m.dataset.name});
+    var Now=document.getElementById('now'),Old=document.getElementById('old'),
+        Save=document.getElementById('save'),Name=document.getElementById('selname'),
+        Sticky=document.getElementById('stickyprice');
+    if(n===0){Name.textContent='（尚未選擇）';Now.textContent='—';Old.textContent='';Save.textContent='';Sticky.textContent='請選模組';return;}
+    var list=BASE*n,disc=DISC[n]||0,total=list-disc;
+    Name.textContent=names.join(' ＋ ')+'（'+n+' 門）';
+    Now.textContent='NT$'+total.toLocaleString(); Sticky.textContent='NT$'+total.toLocaleString();
+    if(disc>0){Old.textContent='NT$'+list.toLocaleString();Save.textContent='已折 NT$'+disc.toLocaleString()+(n===4?'（全包最划算）':'');}
+    else{Old.textContent='';Save.textContent='再加一門省 1,000 起';}
+  }
+  function toggle(el){el.classList.toggle('on');calc();}
+  calc();
+
+  // === Recur 金流掛鉤（商品建好後填）；回呼用 onPaymentComplete(status==='SUCCEEDED') ===
+  var RECUR_CHECKOUT_URL='';
+  function openCheckout(){
+    var on=document.querySelectorAll('.mod.on');
+    if(on.length===0){alert('先在上方勾選至少一個模組 🙂');document.getElementById('choose').scrollIntoView();return;}
+    if(RECUR_CHECKOUT_URL){window.location.href=RECUR_CHECKOUT_URL;}else{alert('報名即將開放，金流串接中 🙏');}
+  }
+  document.getElementById('freebtn').addEventListener('click',function(e){
+    if(this.getAttribute('href')==='#'){e.preventDefault();alert('免費試做版連結待填 🙂');}
+  });
+</script>
+</body>
+</html>
