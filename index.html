@@ -269,6 +269,32 @@
   .ctafinal{text-align:center;background:radial-gradient(800px 400px at 50% 0%,rgba(249,115,22,.14),transparent),var(--bg2);padding:78px 0}
   footer{padding:40px 0;color:var(--mut);font-size:13px;text-align:center;border-top:1px solid var(--line)}
 
+  .topnav{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:10px}
+  .brand-ic{width:36px;height:36px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+  .brand-tx{display:flex;flex-direction:column;line-height:1.12}
+  .brand-tx b{font-size:14.5px;color:var(--txt)}
+  .brand-tx i{font-size:11px;color:var(--mut);font-style:normal;font-weight:600}
+  .nav-right{display:flex;align-items:center;gap:22px}
+  .nav-link{font-size:14px;font-weight:600;color:var(--mut)}
+  .nav-link:hover{color:var(--txt)}
+  .nav-cta{background:var(--txt);color:#fff;font-weight:700;font-size:14px;padding:9px 20px;border-radius:999px}
+  .nav-cta:hover{background:#0f172a}
+  @media(max-width:680px){.nav-link{display:none}.nav-in{height:54px}}
+  .promobar{background:var(--txt);color:#fff;text-align:center;font-size:13.5px;padding:9px 16px;font-weight:500}
+  .promobar .o{color:#9aa3b2;text-decoration:line-through;margin:0 8px}
+  .promobar .n{color:var(--accent);font-weight:800}
+  .eyebrow{display:inline-block;background:var(--txt);color:#fff;font-size:10px;font-weight:800;letter-spacing:.15em;padding:5px 12px;border-radius:999px;text-transform:uppercase;margin-bottom:12px}
+  .trustrow{display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+  .trustrow .stars{color:var(--accent);font-size:15px;letter-spacing:1px}
+  .trustrow .tt{font-size:13.5px;color:var(--mut);font-weight:600}
+  .hero-price{display:flex;align-items:baseline;gap:12px;margin-top:16px}
+  .hero-price .o{color:#9aa3b2;text-decoration:line-through;font-size:14px}
+  .hero-price .n{font-size:18px;font-weight:800;color:var(--txt)}
+  .hero-price .n b{color:var(--accent)}
+  .refund-pill{display:inline-flex;align-items:center;gap:7px;margin-top:14px;border:1px solid rgba(249,115,22,.35);background:rgba(249,115,22,.06);color:#c2410c;font-weight:700;font-size:13px;padding:7px 14px;border-radius:999px}
+  .prompt-bubble .tail{position:absolute;bottom:-8px;left:26px;width:16px;height:16px;background:#fff;border-right:1px solid #e6e8ee;border-bottom:1px solid #e6e8ee;transform:rotate(45deg)}
   .sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;
     background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:11px 16px}
   .sticky .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px}
@@ -291,11 +317,24 @@
 </head>
 <body>
 
+<!-- 頂部 nav -->
+<nav class="topnav"><div class="wrap nav-in">
+  <a class="brand" href="#"><span class="brand-ic">🤖</span><span class="brand-tx"><b>巴斯・自動化實戰</b><i>AI Automation</i></span></a>
+  <div class="nav-right">
+    <a class="nav-link" href="#choose">模組與價格</a>
+    <a class="nav-link" href="#free">免費試做</a>
+    <a class="nav-cta" href="#choose">立即報名</a>
+  </div>
+</div></nav>
+<!-- 限時優惠條 -->
+<div class="promobar">上市首發優惠 <span class="o">原價 NT$3,999</span> <span class="n">單門 NT$1,999 起（5 折）</span></div>
+
 <!-- 1. HERO -->
 <header class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="badge">🤖 巴斯的自動化實戰　零基礎友善</span>
+      <span class="eyebrow">自動化實戰課</span>
+      <div class="trustrow"><span class="tt">🚀 上市首發 · 創始學員招募中 · 零基礎友善 · 7 日退費</span></div>
       <h1>把每天重複的點擊、複製貼上，<br><span class="g">做成一鍵執行的自動化流程</span></h1>
       <p class="sub">不會寫程式也能開始。選一個你熟悉的工作場景，用中文請 AI 產生腳本，跟著實機畫面安裝、執行、排錯；最快 <b style="color:#0f172a">90 分鐘</b>跑出第一個可操作成果。</p>
       <ul class="checks">
@@ -305,11 +344,12 @@
         <li>附可修改模板與真人卡關支援，做完能換成自己的用途</li>
       </ul>
       <div class="herobtns"><a class="btn big" href="#free">免費試做一次 →</a><a class="btn ghost" href="#choose">看模組與價格</a></div>
-      <p class="guarantee-line">✓ 7 日退費保障・上市首發價・卡關有明確支援規格</p>
+      <div class="hero-price"><span class="o">原價 NT$3,999</span><span class="n">上市首發 <b>單門 NT$1,999</b></span></div>
+      <span class="refund-pill">🛡️ 7 日內未解鎖第 2 模組・100% 退費保證</span>
       <p class="proof-note">※ 90 分鐘為單一入門成果的最快完成時間；實際進度依設備、操作熟悉度與選擇模組而異。</p>
     </div>
     <div class="herodemo">
-      <div class="prompt-bubble">幫我做一個每天自動整理訂單、把今天要出貨的列出來提醒我的小工具<span class="caret"></span></div>
+      <div class="prompt-bubble">幫我做一個每天自動整理訂單、把今天要出貨的列出來提醒我的小工具<span class="caret"></span><div class="tail"></div></div>
       <div class="phone"><div class="phone-screen">
         <div class="app-top">📦 訂單自動整理</div>
         <div class="app-tabs"><b>全部</b><span>待出貨</span><span>已完成</span></div>
