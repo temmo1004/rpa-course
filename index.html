@@ -134,6 +134,18 @@
   .path .p h4{font-size:17px;margin-bottom:6px}
   .path .p p{color:var(--mut);font-size:14px}
   @media(max-width:760px){.path{grid-template-columns:1fr}}
+  /* 圖牆（成果 mockup） */
+  .shotgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .shot{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .shot img{width:100%;display:block;aspect-ratio:16/10;object-fit:cover;border-bottom:1px solid var(--line)}
+  .shot figcaption{padding:16px 18px}
+  .shot figcaption b{font-size:16px}
+  .shot figcaption span{display:block;color:var(--mut);font-size:13.5px;margin:4px 0 8px}
+  .shot figcaption em{font-style:normal;color:var(--accent2);font-weight:700;font-size:13px}
+  @media(max-width:640px){.shotgrid{grid-template-columns:1fr}}
+  .pathbanner{width:100%;border-radius:16px;border:1px solid var(--line);margin-bottom:24px;
+    max-height:240px;object-fit:cover;display:block}
+  .atmo{width:100%;border-radius:18px;border:1px solid var(--line);margin-top:8px;display:block}
 
   .journey{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
   .journey .j{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
@@ -319,6 +331,7 @@
   <div class="wrap">
     <h2>你會走過的學習路徑（每個模組都一樣）</h2>
     <p class="lead">不是給你四個神奇腳本，是一套「看得懂、改得動、帶得走」的能力。每一步都錄影帶你做。</p>
+    <img src="img/path.png" class="pathbanner" alt="六階段學習路徑示意">
     <div class="path">
       <div class="p"><div class="n">1</div><h4>看懂一個自動化任務</h4><p>先拆解「這件事為什麼能交給電腦」，完全不碰語法。</p></div>
       <div class="p"><div class="n">2</div><h4>用中文對 AI 下指令</h4><p>照我的原話，請 AI 產生第一版可執行的腳本。</p></div>
@@ -353,11 +366,13 @@
   <div class="wrap">
     <h2>講師親手做的成果示範</h2>
     <p class="lead">上市首發，這些是巴斯自己天天在用的自動化（用「省下多少時間」說話）。<b style="color:var(--accent2)">你，可以是第一批創始學員——你的成果，會成為這裡的第一個學員見證。</b></p>
-    <div class="wall">
-      <div class="w"><div class="h">🎟️</div><b>開賣監控・表單自動化</b><p>開賣瞬間自動填完購票表單。</p><div class="num">手動填表 90 秒 → 自動 0 秒</div></div>
-      <div class="w"><div class="h">🛒</div><b>競品查價彙整</b><p>每天人工查 30 家售價 → 自動彙整成表。</p><div class="num">每天 40 分鐘 → 0 分鐘</div></div>
-      <div class="w"><div class="h">🤖</div><b>LINE 進化後台</b><p>自動回覆客人、還會越用越懂你。</p><div class="num">深夜手動回覆 → 它自己回</div></div>
+    <div class="shotgrid">
+      <figure class="shot"><img src="img/m_line.png" alt="LINE 進化後台自動回覆訊息"><figcaption><b>🤖 LINE 進化後台</b><span>自動回覆客人，還越用越懂你</span><em>深夜手動回覆 → 它自己回</em></figcaption></figure>
+      <figure class="shot"><img src="img/m_price.png" alt="競品售價自動彙整成表"><figcaption><b>🛒 競品查價彙整</b><span>30 家售價自動抓回、整理成一張表</span><em>每天 40 分鐘 → 0 分鐘</em></figcaption></figure>
+      <figure class="shot"><img src="img/m_post.png" alt="多平台自動發文"><figcaption><b>📣 多平台自動發布</b><span>一次輸入，自動發到多個平台</span><em>每天手動貼 → 自動完成</em></figcaption></figure>
+      <figure class="shot"><img src="img/m_desktop.png" alt="桌面自動化"><figcaption><b>🖥️ 桌面自動化</b><span>固定點擊與資料整理交給電腦</span><em>重複操作 → 自動跑完</em></figcaption></figure>
     </div>
+    <p class="proof-note">＊以上為講師本人自用自動化的成果示意。學員實作成果將陸續加入。</p>
   </div>
 </section>
 
