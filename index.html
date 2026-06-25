@@ -106,6 +106,17 @@
   .ladder span{background:#15122e;border:1px solid var(--line);padding:6px 12px;border-radius:999px}
   .urgency{color:var(--gold);font-size:13px;margin-top:10px;font-weight:700}
   .refund{color:var(--accent2);font-size:12.5px;margin-top:6px}
+  .checks{list-style:none;display:grid;gap:10px;margin:4px 0 20px}
+  .checks li{padding-left:30px;position:relative;color:var(--txt);font-size:16px;font-weight:600}
+  .checks li:before{content:"✓";position:absolute;left:0;color:var(--accent2);font-weight:900;font-size:18px}
+  .vs{width:100%;border-collapse:collapse;margin-top:18px;font-size:14.5px;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .vs th,.vs td{padding:14px 14px;text-align:center;border-bottom:1px solid var(--line)}
+  .vs tr:last-child td{border-bottom:0}
+  .vs th{font-weight:800;font-size:15px}
+  .vs .me{background:#1b2450}.vs th.me{color:var(--accent2)}
+  .vs td.k{text-align:left;color:var(--mut);font-weight:600}
+  .vs .x{color:#ff6b8a;font-weight:800}.vs .v{color:var(--accent2);font-weight:800}
+  @media(max-width:560px){.vs th,.vs td{padding:10px 8px;font-size:12.5px}}
 
   .journey{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
   .journey .j{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
@@ -178,7 +189,13 @@
     <div>
       <span class="badge">🤖 巴斯的自動化實戰　零基礎友善</span>
       <h1>不會寫程式，<br>也能讓 AI <span class="g">接手你每天重複的電腦工作</span></h1>
-      <p class="sub">從下第一句 AI 指令開始，最快 <b style="color:#fff">90 分鐘</b>做出你的第一個自動化流程。不背語法、不只看展示——連跑出紅字怎麼修，我都錄給你看，還有真人協助你修到成功。</p>
+      <p class="sub">從下第一句 AI 指令開始，最快 <b style="color:#fff">90 分鐘</b>做出你的第一個自動化流程。不背語法、不只看展示——連跑出紅字怎麼修，我都錄給你看。</p>
+      <ul class="checks">
+        <li>零基礎可上手，跟著我用中文對 AI 下指令</li>
+        <li>連「出錯怎麼修」都完整錄給你，不是只剪成功畫面</li>
+        <li>最快 90 分鐘，跑出你的第一個自動化成果</li>
+        <li>學一套，搶票・查價・發文・刷手遊都能用</li>
+      </ul>
       <div class="herobtns"><a class="btn big" href="#free">免費試做一次 →</a><a class="btn ghost" href="#choose">看模組與價格</a></div>
       <p class="guarantee-line">✓ 7 日內未解鎖第 2 個模組，可全額退費</p>
       <div class="statbar">
@@ -294,7 +311,14 @@
         <div class="pr">NT$1,999</div>
       </div>
     </div>
-    <div class="anchor">請工程師寫一支自動化：<b>3–8 萬起</b>　·　自己每天手動：<b>每月 20+ 小時</b>　·　這堂課：<b style="color:var(--accent2)">單門 NT$1,999、永久回看</b></div>
+    <table class="vs">
+      <tr><th class="k" style="text-align:left">比較</th><th class="me">這堂課</th><th>請工程師外包</th><th>自己硬幹</th></tr>
+      <tr><td class="k">花費</td><td class="me v">單門 NT$1,999</td><td class="x">3–8 萬／支</td><td>每月 20+ 小時</td></tr>
+      <tr><td class="k">要不要會寫程式</td><td class="me v">不用</td><td class="v">他會</td><td class="x">要學很久</td></tr>
+      <tr><td class="k">出錯怎麼辦</td><td class="me v">教你修＋真人問</td><td class="x">再付錢</td><td class="x">自己卡死</td></tr>
+      <tr><td class="k">之後能自己改</td><td class="me v">能，附程式碼</td><td class="x">每次找他</td><td>看本事</td></tr>
+      <tr><td class="k">永久擁有</td><td class="me v">✓ 買斷回看</td><td class="x">交付就結束</td><td>—</td></tr>
+    </table>
     <div class="pricebox">
       <div>
         <div class="label">你選的模組</div>
