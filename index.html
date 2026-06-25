@@ -117,6 +117,12 @@
   .vs td.k{text-align:left;color:var(--mut);font-weight:600}
   .vs .x{color:#ff6b8a;font-weight:800}.vs .v{color:var(--accent2);font-weight:800}
   @media(max-width:560px){.vs th,.vs td{padding:10px 8px;font-size:12.5px}}
+  .quiz{background:#1b2450;border:1px solid var(--accent);border-radius:14px;padding:20px 22px;margin-bottom:18px}
+  .quiz .qh{font-weight:800;font-size:16px;margin-bottom:14px}
+  .quiz .qopts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .quiz .qopts button{background:var(--card);border:1px solid var(--line);color:var(--txt);border-radius:10px;padding:14px 10px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit}
+  .quiz .qopts button:hover{border-color:var(--accent2);color:#fff}
+  @media(max-width:560px){.quiz .qopts{grid-template-columns:1fr 1fr}}
 
   .journey{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
   .journey .j{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
@@ -277,36 +283,45 @@
   <div class="wrap">
     <h2>四種實戰場景，任你挑</h2>
     <p class="lead">每個模組都是「同一套自動化能力」的不同應用。每門原價 NT$3,999、上市優惠 NT$1,999，買越多再折越多。</p>
+    <div class="quiz">
+      <div class="qh">🤔 不知道選哪個？告訴我你最想自動化哪件事，我幫你選：</div>
+      <div class="qopts">
+        <button type="button" onclick="pickModule('自動發文')">每天在貼文／發訊息</button>
+        <button type="button" onclick="pickModule('蝦皮爬蟲')">盯競品價格／抓資料</button>
+        <button type="button" onclick="pickModule('搶票機器人')">搶限量／開賣填表</button>
+        <button type="button" onclick="pickModule('桌面自動化')">重複的桌面點擊</button>
+      </div>
+    </div>
     <div class="modgrid">
       <div class="mod on" data-name="搶票機器人" role="checkbox" aria-checked="true" tabindex="0" onclick="toggle(this)">
         <div class="ck">✓</div><div class="ic">🎟️</div>
-        <h3>開賣監控・表單自動化</h3>
-        <p>自動進場、選位、填表，OCR 辨識驗證碼。把開賣瞬間的填表手速自動化。</p>
-        <div class="meta">最終跑出：自動完成購票表單流程　·　第一次成果：約 90 分鐘</div>
+        <h3>開賣瞬間，自動幫你把表單填完</h3>
+        <p><b style="color:var(--txt)">輸入</b>你的購票資料 → <b style="color:var(--txt)">AI</b> 監控開賣、自動選位填表、OCR 讀驗證碼 → <b style="color:var(--accent2)">產出</b>自動完成的購票流程。</p>
+        <div class="meta">⏱️ 90 分鐘做到：開賣瞬間自動把表單填好送出</div>
         <a href="m/kaimai.html" onclick="event.stopPropagation()" style="display:inline-block;margin-top:10px;color:var(--accent2);font-size:13px;font-weight:700;border-bottom:1px solid var(--accent2)">看這個模組詳情 →</a>
         <div class="pr">NT$1,999</div>
       </div>
       <div class="mod" data-name="蝦皮爬蟲" role="checkbox" aria-checked="false" tabindex="0" onclick="toggle(this)">
         <div class="ck">✓</div><div class="ic">🛒</div>
-        <h3>資料擷取・競品查價</h3>
-        <p>自動抓公開售價、整理成表。盯市場行情不用一頁頁人工看。</p>
-        <div class="meta">最終跑出：競品價格自動彙整表　·　合法用途：市場研究</div>
+        <h3>競品售價，自動抓回來整理成一張表</h3>
+        <p><b style="color:var(--txt)">輸入</b>要追的商品 → <b style="color:var(--txt)">AI</b> 自動擷取公開售價、彙整 → <b style="color:var(--accent2)">產出</b>一張競品價格表，有變動就通知。</p>
+        <div class="meta">⏱️ 90 分鐘做到：自動抓回 30 家售價、整理成一張表</div>
         <a href="m/price.html" onclick="event.stopPropagation()" style="display:inline-block;margin-top:10px;color:var(--accent2);font-size:13px;font-weight:700;border-bottom:1px solid var(--accent2)">看這個模組詳情 →</a>
         <div class="pr">NT$1,999</div>
       </div>
       <div class="mod" data-name="自動發文" role="checkbox" aria-checked="false" tabindex="0" onclick="toggle(this)">
         <div class="ck">✓</div><div class="ic">📢</div>
-        <h3>內容自動發布</h3>
-        <p>用真人點選方式自動發文（非 API），多平台都能套，省下每天貼文時間。</p>
-        <div class="meta">最終跑出：自動把內容發到平台　·　最受歡迎入門模組</div>
+        <h3>一次輸入，自動發布到多個平台</h3>
+        <p><b style="color:var(--txt)">輸入</b>你的內容 → <b style="color:var(--txt)">AI</b> 用真人點選方式自動發（非 API）→ <b style="color:var(--accent2)">產出</b>多平台同步發布。</p>
+        <div class="meta">⏱️ 90 分鐘做到：一次輸入、自動發到多個平台　·　最受歡迎入門</div>
         <a href="m/post.html" onclick="event.stopPropagation()" style="display:inline-block;margin-top:10px;color:var(--accent2);font-size:13px;font-weight:700;border-bottom:1px solid var(--accent2)">看這個模組詳情 →</a>
         <div class="pr">NT$1,999</div>
       </div>
       <div class="mod" data-name="桌面自動化" role="checkbox" aria-checked="false" tabindex="0" onclick="toggle(this)">
         <div class="ck">✓</div><div class="ic">🎮</div>
-        <h3>畫面辨識・桌面自動化</h3>
-        <p>用畫面辨識做重複的桌面操作（含手遊日常掛機的實驗示範）。</p>
-        <div class="meta">最終跑出：自動執行重複桌面流程　·　進階整合題</div>
+        <h3>讓電腦自動完成固定點擊與資料整理</h3>
+        <p><b style="color:var(--txt)">輸入</b>你每天重複的桌面流程 → <b style="color:var(--txt)">AI</b> 用畫面辨識自動點擊、整理 → <b style="color:var(--accent2)">產出</b>電腦自己跑完的流程。</p>
+        <div class="meta">⏱️ 90 分鐘做到：固定點擊與資料整理交給電腦（含手遊掛機示範）</div>
         <a href="m/desktop.html" onclick="event.stopPropagation()" style="display:inline-block;margin-top:10px;color:var(--accent2);font-size:13px;font-weight:700;border-bottom:1px solid var(--accent2)">看這個模組詳情 →</a>
         <div class="pr">NT$1,999</div>
       </div>
@@ -498,6 +513,16 @@
     el.classList.toggle('on');
     el.setAttribute('aria-checked', el.classList.contains('on')?'true':'false');
     calc();
+  }
+  // 分流測驗：點痛點 → 自動選對應模組 + 捲到它
+  function pickModule(name){
+    document.querySelectorAll('.mod').forEach(function(m){
+      var on=m.dataset.name===name;
+      m.classList.toggle('on',on); m.setAttribute('aria-checked',on?'true':'false');
+    });
+    calc();
+    var el=document.querySelector('.mod.on'); if(el){el.scrollIntoView({behavior:'smooth',block:'center'});}
+    try{if(window.gtag)gtag('event','quiz_pick',{module:name});}catch(e){}
   }
   // 鍵盤可操作
   document.querySelectorAll('.mod').forEach(function(m){
