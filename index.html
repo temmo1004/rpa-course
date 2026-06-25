@@ -123,6 +123,16 @@
   .quiz .qopts button{background:var(--card);border:1px solid var(--line);color:var(--txt);border-radius:10px;padding:14px 10px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit}
   .quiz .qopts button:hover{border-color:var(--accent2);color:#fff}
   @media(max-width:560px){.quiz .qopts{grid-template-columns:1fr 1fr}}
+  /* 視覺節奏：帶微光的段落，打破整頁死黑紫 */
+  .band{background:radial-gradient(1000px 460px at 50% -8%,rgba(124,92,255,.16),transparent),var(--bg2)}
+  /* 課綱／學習路徑 */
+  .path{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:10px;counter-reset:step}
+  .path .p{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px 22px;position:relative}
+  .path .p .n{width:46px;height:46px;border-radius:12px;background:var(--grad);color:#fff;font-weight:900;
+    font-size:23px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;box-shadow:0 8px 20px rgba(124,92,255,.4)}
+  .path .p h4{font-size:17px;margin-bottom:6px}
+  .path .p p{color:var(--mut);font-size:14px}
+  @media(max-width:760px){.path{grid-template-columns:1fr}}
 
   .journey{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
   .journey .j{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
@@ -278,6 +288,22 @@
   </div>
 </section>
 
+<!-- 4a. 課綱／學習路徑（對標 Ray貓 的階段大圖）-->
+<section class="band">
+  <div class="wrap">
+    <h2>你會走過的學習路徑（每個模組都一樣）</h2>
+    <p class="lead">不是給你四個神奇腳本，是一套「看得懂、改得動、帶得走」的能力。每一步都錄影帶你做。</p>
+    <div class="path">
+      <div class="p"><div class="n">1</div><h4>看懂一個自動化任務</h4><p>先拆解「這件事為什麼能交給電腦」，完全不碰語法。</p></div>
+      <div class="p"><div class="n">2</div><h4>用中文對 AI 下指令</h4><p>照我的原話，請 AI 產生第一版可執行的腳本。</p></div>
+      <div class="p"><div class="n">3</div><h4>在自己電腦跑起來</h4><p>環境怎麼裝、怎麼按下執行，一步步跟著做。</p></div>
+      <div class="p"><div class="n">4</div><h4>出紅字，學會修</h4><p>最關鍵一步——把錯誤貼給 AI、看懂它在說什麼、修到過。</p></div>
+      <div class="p"><div class="n">5</div><h4>改成你自己的用途</h4><p>把範例換成你的需求，產出真正能用的工具。</p></div>
+      <div class="p"><div class="n">6</div><h4>帶走可重複的能力</h4><p>下次遇到新的重複工作，你自己就能複製這套流程。</p></div>
+    </div>
+  </div>
+</section>
+
 <!-- 4b. 真實操作錄影（證明，放在報價前）-->
 <section class="alt">
   <div class="wrap split">
@@ -310,7 +336,7 @@
 </section>
 
 <!-- 5. 四大模組 + 選擇器 -->
-<section class="alt" id="choose">
+<section class="band" id="choose">
   <div class="wrap">
     <h2>四種實戰場景，任你挑</h2>
     <p class="lead">每個模組都是「同一套自動化能力」的不同應用。每門原價 NT$3,999、上市優惠 NT$1,999，買越多再折越多。</p>
