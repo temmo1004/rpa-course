@@ -3,85 +3,124 @@
   *{margin:0;padding:0;box-sizing:border-box}
   body{background:#888;font-family:-apple-system,"PingFang TC","Noto Sans TC",sans-serif}
   .card{width:1080px;height:1080px;background:#f7f3ec;position:relative;
-    padding:90px 88px;display:flex;flex-direction:column;overflow:hidden}
-  .brand{display:flex;align-items:center;gap:16px;margin-bottom:8px}
-  .brand .av{width:64px;height:64px;border-radius:50%;background:#1b1740;
-    color:#fff;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:900}
-  .brand .nm{font-weight:800;font-size:30px;color:#1b1740}
-  .brand .sp{font-size:22px;color:#9b96b5}
-  .hook{font-size:74px;line-height:1.28;font-weight:900;color:#17142e;
-    letter-spacing:-1px;margin-top:48px}
-  .hook .hl{background:linear-gradient(120deg,#7c5cff,#b06cff);-webkit-background-clip:text;
-    background-clip:text;color:transparent}
-  .sub{font-size:38px;line-height:1.6;color:#4b4670;margin-top:40px;white-space:pre-line}
+    padding:88px 84px;display:flex;flex-direction:column;overflow:hidden}
+  .card.dark{background:#17142e}
+  .brand{display:flex;align-items:center;gap:16px}
+  .brand .av{width:62px;height:62px;border-radius:50%;background:#1b1740;
+    color:#fff;display:flex;align-items:center;justify-content:center;font-size:29px;font-weight:900}
+  .card.dark .brand .av{background:#fff;color:#1b1740}
+  .brand .nm{font-weight:800;font-size:29px;color:#1b1740}
+  .brand .sp{font-size:21px;color:#9b96b5}
+  .card.dark .brand .nm{color:#fff}
+  .hook{font-size:66px;line-height:1.32;font-weight:900;color:#17142e;letter-spacing:-1px;margin-top:46px}
+  .card.dark .hook{color:#f3f1ff}
+  .hook .hl{background:linear-gradient(120deg,#7c5cff,#b06cff);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .card.dark .hook .hl{background:linear-gradient(120deg,#a78bff,#22d3ee);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{font-size:36px;line-height:1.62;color:#4b4670;margin-top:38px;white-space:pre-line}
+  .card.dark .sub{color:#b9b4dc}
   .foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between}
-  .cta{background:linear-gradient(120deg,#7c5cff,#22d3ee);color:#fff;font-weight:900;
-    font-size:36px;padding:24px 46px;border-radius:999px}
-  .tag{font-size:30px;color:#8a85a8;font-weight:700}
+  .cta{background:linear-gradient(120deg,#7c5cff,#22d3ee);color:#fff;font-weight:900;font-size:34px;padding:23px 44px;border-radius:999px}
+  .tag{font-size:29px;color:#8a85a8;font-weight:700}
   .price{font-size:34px;font-weight:900;color:#17142e}
-  .price s{color:#b7b2ca;font-weight:600;font-size:26px;margin-right:10px}
+  .card.dark .price{color:#fff}
+  .price s{color:#b7b2ca;font-weight:600;font-size:25px;margin-right:10px}
   .deco{position:absolute;right:-120px;top:-120px;width:380px;height:380px;border-radius:50%;
     background:radial-gradient(circle,rgba(124,92,255,.16),transparent 70%)}
+  .card.dark .deco{background:radial-gradient(circle,rgba(124,92,255,.34),transparent 70%)}
 </style></head><body>
 
-<div class="card" id="c1">
-  <div class="deco"></div>
+<div class="card" id="c1"><div class="deco"></div>
   <div class="brand"><div class="av">巴</div><div><div class="nm">巴斯・自動化實戰</div><div class="sp">贊助</div></div></div>
-  <div class="hook">我朋友每天手動回 LINE 客人<br>回到<span class="hl">半夜</span>。</div>
+  <div class="hook">我朋友每天<br>手動回 LINE 到<span class="hl">半夜</span>。</div>
   <div class="sub">我教他用 AI 做了一個機器人。
 現在它自己回，他睡覺。
 連怎麼跟 AI 下指令，我都錄給你看。</div>
-  <div class="foot"><div class="tag">零基礎也能做</div><div class="cta">免費試做 →</div></div>
-</div>
+  <div class="foot"><div class="tag">零基礎也能做</div><div class="cta">免費試做 →</div></div></div>
 
-<div class="card" id="c2">
-  <div class="deco"></div>
+<div class="card" id="c2"><div class="deco"></div>
   <div class="brand"><div class="av">巴</div><div><div class="nm">巴斯・自動化實戰</div><div class="sp">贊助</div></div></div>
-  <div class="hook">每天在公司點<br>同一顆按鈕 <span class="hl">30 次</span>。</div>
-  <div class="sub">我受不了，
-叫 AI 幫我做了個機器人代勞。
+  <div class="hook">朋友的習慣表<br>撐了 <span class="hl">11 個月</span>。</div>
+  <div class="sub">我問他為什麼不用 App。
+他說「沒一個剛好做我要的」。
+兩週後，我教他用 AI 做了一個。</div>
+  <div class="foot"><div class="tag">零基礎也能做</div><div class="cta">免費試做 →</div></div></div>
+
+<div class="card dark" id="c3"><div class="deco"></div>
+  <div class="brand"><div class="av">巴</div><div><div class="nm">巴斯・自動化實戰</div><div class="sp">贊助</div></div></div>
+  <div class="hook">每天在公司<br>點同一顆按鈕<br><span class="hl">30 次</span>。</div>
+  <div class="sub">我受不了，叫 AI 幫我做了機器人。
 現在它自己跑，我喝咖啡。</div>
-  <div class="foot"><div class="tag">上班族の自動化</div><div class="cta">免費試做 →</div></div>
-</div>
+  <div class="foot"><div class="tag">上班族の自動化</div><div class="cta">免費試做 →</div></div></div>
 
-<div class="card" id="c3">
-  <div class="deco"></div>
+<div class="card" id="c4"><div class="deco"></div>
   <div class="brand"><div class="av">巴</div><div><div class="nm">巴斯・自動化實戰</div><div class="sp">贊助</div></div></div>
-  <div class="hook">工程師不會告訴你：<br>這些「機器人」<span class="hl">沒那麼難</span>。</div>
-  <div class="sub">我把整套錄下來，
-連我怎麼問 AI、出錯怎麼修，
-都完整保留。</div>
-  <div class="foot"><div class="tag">破除迷思</div><div class="cta">先看免費版 →</div></div>
-</div>
+  <div class="hook">Excel 同樣的東西<br>填到<span class="hl">眼睛花</span>。</div>
+  <div class="sub">一句話交給 AI，
+它自己幫你填完三十次。
+省下的下午拿去做更值錢的事。</div>
+  <div class="foot"><div class="tag">省下整個下午</div><div class="cta">免費試做 →</div></div></div>
 
-<div class="card" id="c4">
-  <div class="deco"></div>
+<div class="card dark" id="c5"><div class="deco"></div>
+  <div class="brand"><div class="av">巴</div><div><div class="nm">巴斯・自動化實戰</div><div class="sp">贊助</div></div></div>
+  <div class="hook">工程師不會告訴你：<br>這些機器人<br><span class="hl">沒那麼難</span>。</div>
+  <div class="sub">連我怎麼問 AI、出錯怎麼修，
+都完整錄給你看。</div>
+  <div class="foot"><div class="tag">破除迷思</div><div class="cta">先看免費版 →</div></div></div>
+
+<div class="card" id="c6"><div class="deco"></div>
+  <div class="brand"><div class="av">巴</div><div><div class="nm">巴斯・自動化實戰</div><div class="sp">贊助</div></div></div>
+  <div class="hook">多數人用 AI <span class="hl">聊天</span>。<br>少數人讓它<br><span class="hl">做完工作</span>。</div>
+  <div class="sub">差別不是你會多少 Prompt，
+是能不能把回答，
+變成一個會自己跑的工具。</div>
+  <div class="foot"><div class="tag">AI 不只是聊天</div><div class="cta">先看免費版 →</div></div></div>
+
+<div class="card" id="c7"><div class="deco"></div>
   <div class="brand"><div class="av">巴</div><div><div class="nm">巴斯・自動化實戰</div><div class="sp">贊助</div></div></div>
   <div class="hook">不會寫程式，<br>也能讓 AI <span class="hl">幫你做事</span>。</div>
   <div class="sub">搶票、查價、發文、刷手遊——
 每天重複的電腦操作，
 最快 90 分鐘做出第一個。</div>
-  <div class="foot"><div class="price"><s>NT$3,999</s>單門 NT$1,999</div><div class="cta">立即報名 →</div></div>
-</div>
+  <div class="foot"><div class="tag">零基礎友善</div><div class="cta">免費試做 →</div></div></div>
 
-<div class="card" id="c5">
-  <div class="deco"></div>
+<div class="card dark" id="c8"><div class="deco"></div>
+  <div class="brand"><div class="av">巴</div><div><div class="nm">巴斯・自動化實戰</div><div class="sp">贊助</div></div></div>
+  <div class="hook">零基礎最怕的<br>不是看不懂，<br>是一排<span class="hl">紅字</span>。</div>
+  <div class="sub">所以我把怎麼看錯誤、
+怎麼叫 AI 修，全都錄進去了。
+卡關，還有真人能問。</div>
+  <div class="foot"><div class="tag">卡關有人問</div><div class="cta">先看免費版 →</div></div></div>
+
+<div class="card" id="c9"><div class="deco"></div>
   <div class="brand"><div class="av">巴</div><div><div class="nm">巴斯・自動化實戰</div><div class="sp">贊助</div></div></div>
   <div class="hook">外包一個自動化工具<br>要<span class="hl">好幾萬</span>。</div>
   <div class="sub">我教你用 AI 自己做。
 一個 LINE 機器人體驗包，
 NT$990 先做出來再說。</div>
-  <div class="foot"><div class="tag">自己做最省</div><div class="cta">990 體驗包 →</div></div>
-</div>
+  <div class="foot"><div class="tag">自己做最省</div><div class="cta">990 體驗包 →</div></div></div>
 
-<div class="card" id="c6">
-  <div class="deco"></div>
+<div class="card" id="c10"><div class="deco"></div>
   <div class="brand"><div class="av">巴</div><div><div class="nm">巴斯・自動化實戰</div><div class="sp">贊助</div></div></div>
-  <div class="hook">你之前看過這個。<br>那個念頭，<span class="hl">還在嗎？</span></div>
+  <div class="hook">把每天重複的事，<br>交給<span class="hl">機器人</span>。</div>
+  <div class="sub">四種實戰場景任選，
+零基礎可學，附筆記、程式碼、
+還有人可以問。</div>
+  <div class="foot"><div class="price"><s>原 NT$3,999</s>單門 NT$1,999</div><div class="cta">立即報名 →</div></div></div>
+
+<div class="card" id="c11"><div class="deco"></div>
+  <div class="brand"><div class="av">巴</div><div><div class="nm">巴斯・自動化實戰</div><div class="sp">贊助</div></div></div>
+  <div class="hook">想接自動化案？<br>客戶只看你能<br>不能拿出 <span class="hl">Demo</span>。</div>
+  <div class="sub">四個模組＝四種可展示的實戰作品。
+從需求拆解、製作到報價，
+建立第一份自動化作品集。</div>
+  <div class="foot"><div class="tag">接案作品集</div><div class="cta">看免費案例 →</div></div></div>
+
+<div class="card dark" id="c12"><div class="deco"></div>
+  <div class="brand"><div class="av">巴</div><div><div class="nm">巴斯・自動化實戰</div><div class="sp">贊助</div></div></div>
+  <div class="hook">你之前看過這個。<br>那個念頭，<br><span class="hl">還在嗎？</span></div>
   <div class="sub">把重複的事交給機器人，
 其實今天就能開始。
 留言「自動化」，送你免費基礎版。</div>
-  <div class="foot"><div class="tag">再行銷・暖客</div><div class="cta">我要試 →</div></div>
-</div>
+  <div class="foot"><div class="tag">再行銷・暖客</div><div class="cta">我要試 →</div></div></div>
 
 </body></html>

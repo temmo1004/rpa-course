@@ -7,9 +7,9 @@ async def main():
         b=await p.chromium.launch()
         pg=await b.new_page(viewport={"width":1120,"height":1120},device_scale_factor=1)
         await pg.goto("file://"+str(Path.home()/"rpa-course/ads/ads.html"))
-        await pg.wait_for_timeout(400)
-        for i in range(1,7):
+        await pg.wait_for_timeout(500)
+        for i in range(1,13):
             await pg.locator(f"#c{i}").screenshot(path=str(OUT/f"ad{i}.png"))
         await b.close()
-    print("CARDS_DONE")
+    print("CARDS_DONE 12")
 asyncio.run(main())
