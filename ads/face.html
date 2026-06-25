@@ -1,0 +1,71 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="UTF-8">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#888;font-family:-apple-system,"PingFang TC","Noto Sans TC",sans-serif}
+  .card{width:1080px;height:1080px;position:relative;overflow:hidden;
+    display:grid;grid-template-columns:1.18fr 1fr;background:#14112c;color:#fff}
+  .L{padding:74px 56px 64px 74px;display:flex;flex-direction:column;position:relative;z-index:2}
+  .R{position:relative}
+  .R .photo{position:absolute;inset:0;background:url('../img/teacher_full.png') center top/cover}
+  .R .fade{position:absolute;inset:0;background:linear-gradient(90deg,#14112c 0%,rgba(20,17,44,.55) 14%,rgba(20,17,44,0) 38%)}
+  .R .vig{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,44,.25),rgba(20,17,44,0) 25%,rgba(20,17,44,.4) 100%)}
+  .brand{display:flex;align-items:center;gap:14px}
+  .brand .dot{width:18px;height:18px;border-radius:50%;background:linear-gradient(120deg,#7c5cff,#22d3ee)}
+  .brand .nm{font-weight:800;font-size:26px}
+  .brand .sp{font-size:19px;color:#b9b4dc}
+  .hook{margin-top:auto;font-size:62px;line-height:1.28;font-weight:900;letter-spacing:-1px}
+  .hook .hl{background:linear-gradient(120deg,#a78bff,#22d3ee);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{font-size:30px;color:#cfcaf0;margin-top:22px;line-height:1.5;white-space:pre-line}
+  .who{margin-top:26px;font-size:24px;color:#b9b4dc}
+  .who b{color:#fff;font-size:28px}
+  .cta{margin-top:30px;align-self:flex-start;background:linear-gradient(120deg,#7c5cff,#22d3ee);
+    color:#fff;font-weight:900;font-size:32px;padding:22px 42px;border-radius:999px;box-shadow:0 14px 36px rgba(124,92,255,.5)}
+</style></head><body>
+
+<div class="card" id="f1">
+  <div class="L">
+    <div class="brand"><div class="dot"></div><div class="nm">巴斯・自動化實戰</div><div class="sp">贊助</div></div>
+    <div class="hook">我每天寫程式<br>超過 <span class="hl">10 小時</span>。</div>
+    <div class="sub">這幾套機器人，
+都是我自己天天在用的真技術，
+現在一次打包教你。</div>
+    <div class="cta">免費試做 →</div>
+  </div>
+  <div class="R"><div class="photo"></div><div class="fade"></div><div class="vig"></div></div>
+</div>
+
+<div class="card" id="f2">
+  <div class="L">
+    <div class="brand"><div class="dot"></div><div class="nm">巴斯・自動化實戰</div><div class="sp">贊助</div></div>
+    <div class="hook">我親自帶你，<br>從第一句指令<br>到<span class="hl">跑起來</span>。</div>
+    <div class="sub">卡關隨時找我，
+不是看完影片就斷線。</div>
+    <div class="who"><b>巴斯</b>　講師・自動化實戰</div>
+    <div class="cta">先看免費版 →</div>
+  </div>
+  <div class="R"><div class="photo"></div><div class="fade"></div><div class="vig"></div></div>
+</div>
+
+<div class="card" id="f3">
+  <div class="L">
+    <div class="brand"><div class="dot"></div><div class="nm">巴斯・自動化實戰</div><div class="sp">贊助</div></div>
+    <div class="hook">帶走一個會<br><span class="hl">自我進化</span>的<br>LINE 機器人。</div>
+    <div class="sub">不是死腳本——
+它自動回覆，還越用越懂你。</div>
+    <div class="cta">990 體驗包 →</div>
+  </div>
+  <div class="R"><div class="photo"></div><div class="fade"></div><div class="vig"></div></div>
+</div>
+
+<div class="card" id="f4">
+  <div class="L">
+    <div class="brand"><div class="dot"></div><div class="nm">巴斯・自動化實戰</div><div class="sp">贊助</div></div>
+    <div class="hook">不會寫程式，<br>也能讓 AI <br><span class="hl">幫你做事</span>。</div>
+    <div class="sub">搶票、查價、發文、刷手遊。
+單門 NT$1,999（原 3,999）。</div>
+    <div class="cta">立即報名 →</div>
+  </div>
+  <div class="R"><div class="photo"></div><div class="fade"></div><div class="vig"></div></div>
+</div>
+
+</body></html>
