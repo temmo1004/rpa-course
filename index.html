@@ -14,6 +14,9 @@
 <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXXX');</script> -->
 <!-- TODO: 填入 Meta Pixel ID（把 PIXEL_ID 換掉，取消註解即啟用；再行銷靠這個）-->
 <!-- <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','PIXEL_ID');fbq('track','PageView');</script> -->
+<!-- TODO: 填入 GA4 Measurement ID（把 G-XXXXXXXXXX 換掉兩處，取消註解即啟用）-->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
 <style>
   :root{
     --bg:#0d0b1f; --bg2:#15122e; --card:#1b1740; --line:#2c2752;
@@ -508,9 +511,12 @@
   });
   calc();
 
+  function track(ev,params){try{if(window.gtag)gtag('event',ev,params||{});if(window.fbq)fbq('track',ev==='purchase_intent'?'InitiateCheckout':ev,params||{});}catch(e){}}
   function openCheckout(){
     var n=document.querySelectorAll('.mod.on').length;
     if(n===0){alert('先在上方勾選至少一個模組 🙂');document.getElementById('choose').scrollIntoView();return;}
+    track('begin_checkout',{value:PRICE[n],currency:'TWD',modules:n});
+    track('purchase_intent',{value:PRICE[n],currency:'TWD'});
     window.location.href=LINK[n];
   }
   // 990 LINE 機器人體驗包（含進化後台）
