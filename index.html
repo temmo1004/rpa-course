@@ -38,6 +38,7 @@
   .btn.ghost{background:transparent;border:1px solid var(--accent);box-shadow:none;color:#cbbcff}
   .guarantee-line{color:var(--accent2);font-size:13.5px;margin-top:12px;font-weight:700}
   .cta-row{text-align:center;margin-top:30px}
+  .proof-note{color:#8882bb;font-size:12.5px;margin-top:10px}
 
   header.hero{position:relative;overflow:hidden;
     background:radial-gradient(1200px 600px at 70% -10%,rgba(124,92,255,.35),transparent),
@@ -172,6 +173,28 @@
   details[open] summary{color:var(--accent2)}
   details p{color:var(--mut);margin-top:12px}
 
+  .assurance{background:
+    radial-gradient(900px 420px at 50% 0%,rgba(34,211,238,.12),transparent 65%),
+    linear-gradient(180deg,#11102a,var(--bg2))}
+  .assurance-head{text-align:center;max-width:760px;margin:0 auto 28px}
+  .assurance-head .eyebrow{display:inline-block;color:var(--gold);font-size:13px;font-weight:800;
+    letter-spacing:.08em;margin-bottom:8px}
+  .assurance-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .assurance-card{background:rgba(27,23,64,.92);border:1px solid var(--line);border-radius:16px;padding:24px}
+  .assurance-card.primary{border-color:#347184;box-shadow:inset 0 1px 0 rgba(34,211,238,.18)}
+  .assurance-card .ic{font-size:28px;margin-bottom:10px}
+  .assurance-card h3{font-size:18px;margin-bottom:7px}
+  .assurance-card p{color:var(--mut);font-size:14.5px}
+  .assurance-card b{color:var(--txt)}
+  .assurance-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+  .assurance-steps div{background:#120f28;border:1px solid var(--line);border-radius:12px;padding:14px;
+    color:var(--mut);font-size:13.5px}
+  .assurance-steps b{display:block;color:var(--accent2);font-size:12px;margin-bottom:3px}
+  .assurance-cta{text-align:center;margin-top:28px}
+  .assurance-cta p{color:var(--mut);font-size:13px;margin-top:10px}
+  .objection-intro{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;margin-bottom:26px}
+  .objection-intro .lead{margin-bottom:0;max-width:700px}
+
   .legal{background:#15122e;border:1px solid var(--line);border-radius:14px;padding:24px;color:var(--mut);font-size:13.5px}
   .legal b{color:var(--txt)}
   .guarantee{background:#19213a;border:1px solid #2c5a6a;border-radius:14px;padding:24px;display:flex;gap:18px;align-items:center}
@@ -190,6 +213,8 @@
     .modgrid,.cards{grid-template-columns:1fr}
     .wall{grid-template-columns:1fr}
     .journey{grid-template-columns:1fr}
+    .assurance-grid,.assurance-steps{grid-template-columns:1fr}
+    .objection-intro{grid-template-columns:1fr}
     h1{font-size:32px}.sub{font-size:15.5px}
     .teacher{grid-template-columns:1fr;text-align:center}.teacher img.av{margin:0 auto}.teacher .cred{justify-content:center}
     .pricebox{grid-template-columns:1fr}.pricebox .amt{text-align:left}
@@ -204,16 +229,17 @@
   <div class="wrap hero-grid">
     <div>
       <span class="badge">🤖 巴斯的自動化實戰　零基礎友善</span>
-      <h1>不會寫程式，<br>也能讓 AI <span class="g">接手你每天重複的電腦工作</span></h1>
-      <p class="sub">從下第一句 AI 指令開始，最快 <b style="color:#fff">90 分鐘</b>做出你的第一個自動化流程。不背語法、不只看展示——連跑出紅字怎麼修，我都錄給你看。</p>
+      <h1>把每天重複的點擊、複製貼上，<br><span class="g">做成一鍵執行的自動化流程</span></h1>
+      <p class="sub">不會寫程式也能開始。選一個你熟悉的工作場景，用中文請 AI 產生腳本，跟著實機畫面安裝、執行、排錯；最快 <b style="color:#fff">90 分鐘</b>跑出第一個可操作成果。</p>
       <ul class="checks">
-        <li>零基礎可上手，跟著我用中文對 AI 下指令</li>
-        <li>連「出錯怎麼修」都完整錄給你，不是只剪成功畫面</li>
-        <li>最快 90 分鐘，跑出你的第一個自動化成果</li>
-        <li>學一套，搶票・查價・發文・刷手遊都能用</li>
+        <li>從範例需求到可執行腳本，完整保留對 AI 下的中文指令</li>
+        <li>安裝、執行、紅字排查都實機示範，不只剪成功畫面</li>
+        <li>四模組任選：表單、查價、發文、桌面操作各做出一個流程</li>
+        <li>附可修改模板與真人卡關支援，做完能換成自己的用途</li>
       </ul>
       <div class="herobtns"><a class="btn big" href="#free">免費試做一次 →</a><a class="btn ghost" href="#choose">看模組與價格</a></div>
-      <p class="guarantee-line">✓ 7 日內未解鎖第 2 個模組，可全額退費</p>
+      <p class="guarantee-line">✓ 7 日退費保障・上市首發價・卡關有明確支援規格</p>
+      <p class="proof-note">※ 90 分鐘為單一入門成果的最快完成時間；實際進度依設備、操作熟悉度與選擇模組而異。</p>
     </div>
     <div><img src="img/cover.png" alt="示意圖：AI 自動完成表單與重複操作的自動化流程"></div>
   </div>
@@ -399,8 +425,8 @@
         <div class="ladder">
           <span>1 門 1,999（<s>原3,999</s>）</span><span>2 門 3,499</span><span>3 門 4,999</span><span>全包 5,999・最划算</span>
         </div>
-        <p class="urgency">🚀 上市首發・創始學員價（前期限定，累積口碑後恢復原價）</p>
-        <p class="refund">✓ 7 日內未解鎖第 2 個模組可全額退費</p>
+        <p class="urgency">🚀 上市首發限定價：至 上市首發期間，額滿或調回原價為止 或 首批創始學員，依支援容量限量 額滿為止</p>
+        <p class="refund">✓ 7 日退費保障・卡關支援與申請規格見下方</p>
       </div>
       <div class="amt">
         <div class="old" id="old"></div>
@@ -425,15 +451,44 @@
   </div>
 </section>
 
-<!-- 10. 真人協助 SLA -->
-<section>
+<!-- 10. 風險逆轉 / 首發成交保障 -->
+<section class="assurance" id="assurance">
   <div class="wrap">
-    <div class="guarantee">
-      <div class="ic">🛟</div>
-      <div>
-        <h3 style="font-size:20px;margin-bottom:6px">卡關不用自己猜——真人協助規格</h3>
-        <p style="color:var(--mut)">購課後加入專屬 Discord／LINE 群，把<b style="color:var(--txt)">錯誤截圖＋執行畫面＋程式碼</b>貼進來，<b style="color:var(--txt)">平日 24 小時內</b>給你排查方向；另含每週一次團體除錯診所、購課 30 天內一次 15 分鐘卡關健檢。</p>
+    <div class="assurance-head">
+      <span class="eyebrow">上市首發保障</span>
+      <h2>不用先相信你一定學得會，先看清楚風險怎麼被接住</h2>
+      <p class="lead" style="margin:8px 0 0">退費、卡關支援、首發價格與截止條件都寫在這裡。適合再買，不靠模糊承諾催你下單。</p>
+    </div>
+    <div class="assurance-grid">
+      <div class="assurance-card primary">
+        <div class="ic">🛡️</div>
+        <h3>7 日實作退費保障</h3>
+        <p>購買後 <b>7 日內</b>，若你尚未解鎖第 2 個模組，可依 <b>來信 bath@404table.com</b>提出全額退費申請。申請時請提供訂單資料，由團隊依購買與解鎖紀錄確認。</p>
       </div>
+      <div class="assurance-card primary">
+        <div class="ic">🛟</div>
+        <h3>卡關不是丟一句「自己問 AI」</h3>
+        <p>透過 <b>購課後邀請的學員 LINE 群</b>提交「錯誤截圖、執行畫面、使用模組與已嘗試步驟」，團隊將於 <b>平日 24 小時內</b>提供下一步排查方向。支援範圍為課程環境、範例與模組實作。</p>
+      </div>
+      <div class="assurance-card">
+        <div class="ic">🚀</div>
+        <h3>首發價不是永久倒數</h3>
+        <p>目前為上市首發價：單門 NT$1,999，任選兩門 NT$3,499、三門 NT$4,999、四門 NT$5,999。首發階段於 <b>上市首發期間，額滿或調回原價為止</b>截止；截止後將依下一階段售價銷售。</p>
+      </div>
+      <div class="assurance-card">
+        <div class="ic">🎫</div>
+        <h3>名額限制來自支援容量</h3>
+        <p>首發梯次開放 <b>首批創始學員，依支援容量限量</b>，以完成付款為保留依據。額滿時將關閉本梯次報名或改為候補，不以虛構庫存製造壓力；最新狀態以本頁付款按鈕是否開放為準。</p>
+      </div>
+    </div>
+    <div class="assurance-steps">
+      <div><b>STEP 1</b>先選最接近你需求的模組</div>
+      <div><b>STEP 2</b>進課後先完成第一個最小流程</div>
+      <div><b>STEP 3</b>卡關就按規格提問；不適合則在保障期內申請</div>
+    </div>
+    <div class="assurance-cta">
+      <a class="btn big" href="#choose">回到模組選擇器 →</a>
+      <p>付款前可先確認模組內容、支援邊界與退費條件。</p>
     </div>
   </div>
 </section>
@@ -469,23 +524,33 @@
     <h2>選一個你最浪費時間的流程，今天就把它自動化</h2>
     <p class="lead" style="max-width:560px;margin:8px auto 22px">四種實戰場景任選，買越多折越多。零基礎可學，附筆記、程式碼，還有真人能問。</p>
     <a class="btn big" href="#choose">挑模組 · 看價格 →</a>
-    <p class="guarantee-line">✓ 7 日內未解鎖第 2 個模組，可全額退費</p>
+    <p class="guarantee-line">✓ 7 日退費保障・首發截止與支援規格公開</p>
   </div>
 </section>
 
 <!-- 14. FAQ -->
 <section class="alt">
   <div class="wrap">
-    <h2>常見問題</h2>
-    <div style="margin-top:28px">
-      <details open><summary>我完全不會寫程式，可以嗎？</summary><p>可以。整套課就是教你「用 AI 寫」，連怎麼下指令都錄進去了，照著做就行。</p></details>
-      <details><summary>AI 回答跟影片不一樣怎麼辦？</summary><p>這正是這堂課的重點——我把「回答不同、出現紅字」時怎麼判斷、怎麼叫 AI 修正都錄進去了，還有真人能問。</p></details>
+    <div class="objection-intro">
+      <div>
+        <h2>報名前，先把最常卡住決策的疑慮拆開</h2>
+        <p class="lead">不是每個人都適合一次買四門。先確認你的時間、設備、期待與使用邊界，再決定從哪一門開始。</p>
+      </div>
+      <a class="btn ghost" href="#assurance">看首發保障</a>
+    </div>
+    <div>
+      <details open><summary>我完全不會寫程式，會不會連第一步都跟不上？</summary><p>課程不要求你先背語法。你會從安裝工具、複製第一段中文指令、執行腳本開始；畫面出現紅字時，也會照課程示範把錯誤資訊整理給 AI。你仍需要願意照步驟操作電腦，但不需要先具備程式背景。</p></details>
+      <details><summary>AI 回答跟影片不一樣，我是不是就沒辦法繼續？</summary><p>AI 每次輸出不完全相同是正常情況，所以課程不把「複製出同一段程式碼」當作學會。你會練習確認需求、執行、讀錯誤訊息、補充環境資訊，再請 AI 修正；若仍無法排除，可依上方支援格式提交問題。</p></details>
+      <details><summary>我工作很忙，買了會不會又放著沒看？</summary><p>先不要把目標設成「看完整套」。建議只選一門，拿一個你真的會用到的流程，先完成最小可執行版本；每次學習都以「下一個能動的結果」為單位。若你目前連一段不受打擾的實作時間都排不出來，建議先用免費試做確認節奏。</p></details>
+      <details><summary>我應該買一門，還是直接買四門？</summary><p>只有一個明確痛點，就先買最接近的一門；同時有資料蒐集、內容發布與桌面操作需求，再考慮多門組合。四門的核心方法相通，但應用場景不同，不需要為了折扣購買短期內用不到的模組。上方分流測驗可先幫你定位。</p></details>
       <details><summary>Windows / Mac 都能用嗎？需要再買別的工具嗎？</summary><p>Windows 與 macOS 皆可。用到的 AI 助手（如 Claude / ChatGPT）採你自己的帳號；課程不另外收工具費，部分雲端／API 可能有少量第三方用量費，課程內會說明最省錢的做法。</p></details>
-      <details><summary>平台改版、程式失效會更新嗎？</summary><p>會。第三方平台改版導致範例失效時，我會更新教學與程式碼，購課者免費取得。</p></details>
+      <details><summary>平台改版、AI 更新，做好的流程會不會失效？</summary><p>第三方網站、瀏覽器、AI 模型或 API 改版，都可能讓既有腳本需要調整。課程重點因此包含排錯與修改方法，而不只交付一支固定腳本；若課程範例因第三方改版失效，會更新對應教學與程式碼。但無法保證任何第三方平台永久維持相同介面。</p></details>
+      <details><summary>做完一定能省下時間、接到案子或搶到票嗎？</summary><p>不保證。課程能提供的是實作路徑、範例、模板與排錯支援；成果仍取決於你的設備、需求複雜度、投入時間與第三方平台限制。開賣模組著重監控與表單流程，不保證取得票券，也不教繞過驗證或公平機制。</p></details>
+      <details><summary>LINE 體驗包和四大模組是什麼關係？</summary><p>LINE 體驗包適合先確認你是否習慣「用中文請 AI 產生、執行、再修正」的學習方式；四大模組則把同一套方法用在表單、查價、發文與桌面操作。體驗包不是四大模組的必修前置，也不會自動包含全部主課內容。</p></details>
       <details><summary>價格怎麼算？</summary><p>單門上市價 NT$1,999（原價 3,999）；任選兩門 3,499、三門 4,999、四門全包 5,999。上方勾選模組會即時算給你看。</p></details>
-      <details><summary>可以拿去接案嗎？</summary><p>可以。課程會帶到怎麼把客戶的重複工作拆成自動化流程、怎麼做 Demo 與報價。</p></details>
+      <details><summary>可以把課程成果拿去接案嗎？</summary><p>你可以把自己完成並調整過的流程作為能力展示，但接案還涉及需求訪談、資料安全、維護責任、第三方條款與報價範圍。請勿轉售、散布課程影片、教材或未經修改的課程原始檔案。</p></details>
       <details><summary>這些合法嗎？會不會違反平台規範？</summary><p>課程教通用自動化技術、示範於練習與測試環境，且不教繞過驗證/反機器人/存取控制。請於合法且符合各平台服務條款範圍內使用，詳見下方聲明。</p></details>
-      <details><summary>買了能看多久？退費條件？</summary><p>教學網站可循環播放、永久回看。退費：購買後 7 日內、且尚未解鎖第 2 個模組，可申請全額退款。</p></details>
+      <details><summary>買了能看多久？退費怎麼申請？</summary><p>教學網站可循環播放、永久回看。購買後 7 日內且尚未解鎖第 2 個模組，可透過 來信 bath@404table.com 提出全額退費申請；完整處理流程與所需訂單資料請見上方「上市首發保障」。</p></details>
     </div>
   </div>
 </section>
