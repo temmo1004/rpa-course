@@ -176,6 +176,33 @@
   .tier li:before{content:"✓";position:absolute;left:0;color:var(--accent2);font-weight:900}
   .tier .tnote{color:#8882bb;font-size:12.5px;margin-top:10px}
   @media(max-width:680px){.tiers{grid-template-columns:1fr}}
+  /* Hero 真渲染 App 示範（對標 Ray prompt→App 結構）*/
+  .herodemo{position:relative;display:flex;justify-content:center;align-items:center;min-height:520px}
+  .phone{width:286px;height:580px;background:#0b0a18;border:11px solid #221d44;border-radius:42px;
+    box-shadow:0 30px 80px rgba(0,0,0,.55);overflow:hidden;position:relative}
+  .phone-screen{position:absolute;inset:0;background:#f6f7f8;color:#0d141b;display:flex;flex-direction:column}
+  .app-top{background:#fff;padding:14px;text-align:center;font-weight:800;border-bottom:1px solid #e5e9ef;font-size:13.5px}
+  .app-tabs{display:flex;gap:16px;padding:9px 16px;background:#fff;border-bottom:1px solid #e5e9ef}
+  .app-tabs b{color:#137fec;border-bottom:2px solid #137fec;padding-bottom:6px;font-size:12px}
+  .app-tabs span{color:#4c739a;font-size:12px}
+  .app-alert{margin:10px;padding:10px 12px;background:#fef3c7;border:1px solid #fcd34d;border-radius:10px;color:#92400e;font-weight:700;font-size:11.5px}
+  .app-list{flex:1;padding:0 10px;overflow:hidden}
+  .ai-row{display:flex;align-items:center;gap:10px;padding:10px 4px;border-bottom:1px solid #eef1f5}
+  .ai-row .ai-ic{width:34px;height:34px;border-radius:9px;background:#eef2f7;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+  .ai-row .mid{flex:1;min-width:0}
+  .ai-row b{font-size:12px;display:block;color:#0d141b}
+  .ai-row small{color:#4c739a;font-size:10.5px}
+  .ai-row .tag{font-size:10px;font-weight:800;padding:3px 8px;border-radius:999px;flex-shrink:0}
+  .ai-row .tag.warn{background:#fef3c7;color:#92400e}
+  .ai-row .tag.ok{background:#dcfce7;color:#166534}
+  .app-nav{display:flex;justify-content:space-around;padding:11px;background:#fff;border-top:1px solid #e5e9ef;color:#4c739a;font-size:11px;font-weight:700}
+  .app-nav b{color:#137fec}
+  .prompt-bubble{position:absolute;left:-6px;top:5%;z-index:5;max-width:240px;background:#fff;color:#1a1430;
+    border:1px solid #2c2752;border-radius:16px;padding:12px 15px;font-size:13.5px;line-height:1.55;font-weight:500;
+    box-shadow:0 18px 44px rgba(0,0,0,.45)}
+  .prompt-bubble .caret{display:inline-block;width:2px;height:1.05em;background:#7c5cff;vertical-align:-2px;margin-left:2px;animation:blink 1s step-end infinite}
+  @keyframes blink{50%{opacity:0}}
+  @media(max-width:980px){.herodemo{min-height:auto;margin-top:14px}.prompt-bubble{position:static;max-width:100%;margin:0 auto 16px}}
 
   .journey{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
   .journey .j{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
@@ -283,7 +310,22 @@
       <p class="guarantee-line">✓ 7 日退費保障・上市首發價・卡關有明確支援規格</p>
       <p class="proof-note">※ 90 分鐘為單一入門成果的最快完成時間；實際進度依設備、操作熟悉度與選擇模組而異。</p>
     </div>
-    <div><img src="img/cover.png" alt="示意圖：AI 自動完成表單與重複操作的自動化流程"></div>
+    <div class="herodemo">
+      <div class="prompt-bubble">幫我做一個每天自動整理訂單、把今天要出貨的列出來提醒我的小工具<span class="caret"></span></div>
+      <div class="phone"><div class="phone-screen">
+        <div class="app-top">📦 訂單自動整理</div>
+        <div class="app-tabs"><b>全部</b><span>待出貨</span><span>已完成</span></div>
+        <div class="app-alert">⚠️ 今天有 3 筆要出貨</div>
+        <div class="app-list">
+          <div class="ai-row"><div class="ai-ic">🧾</div><div class="mid"><b>訂單 #1042</b><small>王小姐 · 2 件</small></div><span class="tag warn">待出貨</span></div>
+          <div class="ai-row"><div class="ai-ic">🧾</div><div class="mid"><b>訂單 #1041</b><small>陳先生 · 1 件</small></div><span class="tag warn">待出貨</span></div>
+          <div class="ai-row"><div class="ai-ic">🧾</div><div class="mid"><b>訂單 #1040</b><small>林小姐 · 4 件</small></div><span class="tag warn">待出貨</span></div>
+          <div class="ai-row"><div class="ai-ic">✅</div><div class="mid"><b>訂單 #1039</b><small>李小姐 · 3 件</small></div><span class="tag ok">已出貨</span></div>
+          <div class="ai-row"><div class="ai-ic">✅</div><div class="mid"><b>訂單 #1038</b><small>張先生 · 1 件</small></div><span class="tag ok">已出貨</span></div>
+        </div>
+        <div class="app-nav"><span><b>📋 訂單</b></span><span>🔔 提醒</span><span>⚙️ 設定</span></div>
+      </div></div>
+    </div>
   </div>
   <div class="wrap"><div class="statbar">
     <div class="s"><b>90 分鐘</b><span>跑出你的第一個成果</span></div>
