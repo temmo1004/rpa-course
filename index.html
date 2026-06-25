@@ -146,6 +146,14 @@
   .pathbanner{width:100%;border-radius:16px;border:1px solid var(--line);margin-bottom:24px;
     max-height:240px;object-fit:cover;display:block}
   .atmo{width:100%;border-radius:18px;border:1px solid var(--line);margin-top:8px;display:block}
+  .ideagrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:760px){.ideagrid{grid-template-columns:1fr}}
+  .vibegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .vibegrid figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .vibegrid img{width:100%;display:block;aspect-ratio:4/3;object-fit:cover}
+  .vibegrid figcaption{padding:12px 14px;color:var(--mut);font-size:13.5px}
+  .vibegrid figcaption b{color:var(--txt);display:block;font-size:15px;margin-bottom:2px}
+  @media(max-width:760px){.vibegrid{grid-template-columns:1fr}}
 
   .journey{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
   .journey .j{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
@@ -378,6 +386,23 @@
   </div>
 </section>
 
+<!-- 4d. 換你會做哪個（對標 Ray「換你做哪個 App」）-->
+<section>
+  <div class="wrap">
+    <h2>看完我做的，換你了——你最想先自動化哪一件？</h2>
+    <p class="lead">這些都是學完能自己做出來的方向。挑一個最有感的，就是你的第一個成果。</p>
+    <div class="shotgrid ideagrid">
+      <figure class="shot"><img src="img/app1.png" alt="自動整理訂單報表"><figcaption><b>📊 訂單自動整理成報表</b><span>每天匯出、合併、算總，一鍵完成</span></figcaption></figure>
+      <figure class="shot"><img src="img/app2.png" alt="客服自動回覆機器人"><figcaption><b>🤖 客服自動回覆機器人</b><span>常見問題自動回，還越用越懂你</span></figcaption></figure>
+      <figure class="shot"><img src="img/app3.png" alt="多商品自動比價"><figcaption><b>🛒 多商品自動比價</b><span>競品價格自動抓回、變動就通知</span></figcaption></figure>
+      <figure class="shot"><img src="img/app4.png" alt="排程自動跑任務"><figcaption><b>⏰ 排程自動跑任務</b><span>固定時間自動執行，不用守著電腦</span></figcaption></figure>
+      <figure class="shot"><img src="img/app5.png" alt="內容自動多平台發布"><figcaption><b>📣 內容多平台自動發布</b><span>一次輸入，自動發到各平台</span></figcaption></figure>
+      <figure class="shot"><img src="img/app6.png" alt="桌面檔案自動歸位"><figcaption><b>🖥️ 桌面資料自動整理</b><span>檔案歸位、表格填好交給電腦</span></figcaption></figure>
+    </div>
+    <div class="cta-row"><a class="btn" href="#choose">選我的第一個自動化 →</a></div>
+  </div>
+</section>
+
 <!-- 5. 四大模組 + 選擇器 -->
 <section class="band" id="choose">
   <div class="wrap">
@@ -518,6 +543,20 @@
     <img src="img/m_line.png" class="atmo" style="max-width:620px;margin:0 auto 26px" alt="LINE 進化後台自動回覆示意">
     <a class="btn big" href="javascript:void(0)" id="freebtn">免費試做基礎版 →</a>
     <p style="margin-top:18px;color:var(--mut)">想直接帶走能用的版本？<a id="tasterbtn" href="javascript:void(0)" style="color:var(--accent2);font-weight:700;border-bottom:1px solid var(--accent2)">NT$990・LINE 機器人體驗包（含進化後台）→</a></p>
+  </div>
+</section>
+
+<!-- 11b. 學習氛圍／社群（對標 Ray「活躍學員社群」，AI 示意圖）-->
+<section class="band">
+  <div class="wrap">
+    <h2>你不是一個人埋頭學——卡關有人接</h2>
+    <p class="lead">創始學員一起開始：卡關貼上錯誤截圖就問，平日 24 小時內回。學習不該是孤單硬撐到放棄。</p>
+    <div class="vibegrid">
+      <figure><img src="img/vibe1.png" alt="一起學習的氛圍"><figcaption><b>一起學，不孤單</b>跟著一群同樣零基礎的人一起開始</figcaption></figure>
+      <figure><img src="img/vibe2.png" alt="做出第一個成果"><figcaption><b>第一個成果的成就感</b>親手跑出第一個自動化，那一刻最有感</figcaption></figure>
+      <figure><img src="img/vibe3.png" alt="互助討論"><figcaption><b>卡關有人接</b>貼錯誤截圖就問，不丟你一個人卡死</figcaption></figure>
+    </div>
+    <p class="proof-note">＊以上為學習情境示意圖。創始學員實際成果與回饋將陸續加入。</p>
   </div>
 </section>
 
