@@ -525,6 +525,34 @@
   document.getElementById('freebtn').addEventListener('click',function(e){
     e.preventDefault(); alert('免費基礎版即將開放，先看付費體驗包或四大模組 🙂');
   });
+
+  // === 行為追蹤：滾動深度 + 區塊曝光 + CTA 點擊（送進 GA4）===
+  (function(){
+    function ev(name,params){try{if(window.gtag)gtag('event',name,params||{});}catch(e){}}
+    // 1. 滾動深度 25/50/75/90%
+    var hit={};
+    addEventListener('scroll',function(){
+      var h=document.documentElement,sc=h.scrollTop||document.body.scrollTop,max=h.scrollHeight-h.clientHeight,
+          pct=max>0?Math.round(sc/max*100):0;
+      [25,50,75,90].forEach(function(m){if(pct>=m&&!hit[m]){hit[m]=1;ev('scroll_depth',{percent:m});}});
+    },{passive:true});
+    // 2. 關鍵區塊「被看到」
+    var fired={};
+    var secs=[['#choose','pricing'],['#free','line_taster'],['.ctafinal','final_cta']];
+    if('IntersectionObserver' in window){
+      secs.forEach(function(s){var el=document.querySelector(s[0]);if(!el)return;
+        new IntersectionObserver(function(es,o){es.forEach(function(e){if(e.isIntersecting&&!fired[s[1]]){fired[s[1]]=1;ev('section_view',{section:s[1]});o.disconnect();}});},{threshold:.4}).observe(el);
+      });
+    }
+    // 3. 任何 CTA 點擊
+    document.querySelectorAll('.btn,#freebtn,#tasterbtn').forEach(function(btn){
+      btn.addEventListener('click',function(){ev('cta_click',{label:(btn.textContent||'').replace(/\s+/g,' ').trim().slice(0,40)});});
+    });
+    // 4. 模組勾選
+    document.querySelectorAll('.mod').forEach(function(m){
+      m.addEventListener('click',function(){if(m.classList.contains('on'))ev('select_module',{module:m.dataset.name});});
+    });
+  })();
 </script>
 </body>
 </html>
