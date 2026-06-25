@@ -154,6 +154,28 @@
   .vibegrid figcaption{padding:12px 14px;color:var(--mut);font-size:13.5px}
   .vibegrid figcaption b{color:var(--txt);display:block;font-size:15px;margin-bottom:2px}
   @media(max-width:760px){.vibegrid{grid-template-columns:1fr}}
+  /* 專案看板 gimmick */
+  .kanban{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .kcol{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:14px}
+  .kh{font-weight:800;font-size:14px;margin-bottom:10px;color:#cbbcff}
+  .kcard{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;
+    font-size:13.5px;margin-bottom:10px;color:var(--txt)}
+  .kcard.done{border-left:3px solid var(--accent2);color:var(--mut);text-decoration:line-through}
+  @media(max-width:680px){.kanban{grid-template-columns:1fr}}
+  /* 雙層定價 */
+  .tiers{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+  .tier{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;position:relative}
+  .tier.hot{border:2px solid var(--accent2);background:#1b1f47}
+  .tbadge{position:absolute;top:-12px;right:20px;background:var(--accent2);color:#06121a;font-weight:800;
+    font-size:12px;padding:5px 12px;border-radius:999px}
+  .tier .tname{font-size:20px;font-weight:900}
+  .tier .tprice{font-size:26px;font-weight:900;margin:8px 0 14px;color:#fff}
+  .tier .tprice span{font-size:14px;color:var(--mut);font-weight:600}
+  .tier ul{list-style:none;display:grid;gap:9px;margin-bottom:16px}
+  .tier li{padding-left:24px;position:relative;font-size:14px;color:var(--mut)}
+  .tier li:before{content:"✓";position:absolute;left:0;color:var(--accent2);font-weight:900}
+  .tier .tnote{color:#8882bb;font-size:12.5px;margin-top:10px}
+  @media(max-width:680px){.tiers{grid-template-columns:1fr}}
 
   .journey{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
   .journey .j{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
@@ -301,6 +323,30 @@
       <img src="img/demo.png" loading="lazy" alt="左：人工重複操作；右：一鍵自動完成" style="width:100%;max-width:760px;border-radius:16px;border:1px solid var(--line)">
     </p>
     <div class="cta-row"><a class="btn" href="#choose">把這段工作永久拿掉 →</a></div>
+  </div>
+</section>
+
+<!-- 2b. 專案看板 gimmick（對標 Ray 專案看板）-->
+<section class="band">
+  <div class="wrap">
+    <h2>你的「重複工作」，會這樣一件一件被處理掉</h2>
+    <p class="lead">把每天卡住你的事丟上看板，學完一個個變成「已自動化」。下面是常見任務示意。</p>
+    <div class="kanban">
+      <div class="kcol"><div class="kh">📥 想自動化</div>
+        <div class="kcard">每天手動貼文到 3 個平台</div>
+        <div class="kcard">月底人工整理訂單報表</div>
+        <div class="kcard">一家家查競品售價</div>
+      </div>
+      <div class="kcol"><div class="kh">⚙️ 進行中（跟著課做）</div>
+        <div class="kcard">競品比價機器人（除錯中）</div>
+        <div class="kcard">表單自動填寫送出</div>
+      </div>
+      <div class="kcol"><div class="kh">✅ 已自動化</div>
+        <div class="kcard done">LINE 客服自動回覆</div>
+        <div class="kcard done">訂單報表自動整理</div>
+        <div class="kcard done">內容多平台自動發布</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -490,6 +536,43 @@
       <div class="card"><div class="ic">🙋</div><h3>真人卡關支援</h3><p>避免買完停在第一個錯誤就放棄（服務規格見下）。</p></div>
     </div>
     <div class="anchor" style="margin-top:18px">⏱️ LINE 體驗包 約 90 分・每個主模組 約 2 小時　·　🎬 100% 實機操作錄影（含下指令與除錯）　·　♾️ 買斷永久回看、更新免費</div>
+  </div>
+</section>
+
+<!-- 9b. 雙層定價（對標 Ray 雙方案）-->
+<section>
+  <div class="wrap">
+    <h2>兩種上法：自己跑，還是有人陪著你跑</h2>
+    <p class="lead">內容一樣，差在「卡關時有沒有人盯著你把成果做出來」。</p>
+    <div class="tiers">
+      <div class="tier">
+        <div class="tname">影音自學版</div>
+        <div class="tprice">單門 NT$1,999<span> 起（買越多越折）</span></div>
+        <ul>
+          <li>四大模組任選，全程實機操作錄影</li>
+          <li>連下指令、出錯怎麼修都錄給你</li>
+          <li>可修改的程式碼模板、永久回看</li>
+          <li>學員 LINE 群、卡關平日 24 小時內回</li>
+          <li>7 日退費保障</li>
+        </ul>
+        <a class="btn" href="#choose">選模組報名 →</a>
+        <div class="tnote">適合：能照步驟自己做、卡關會自己查的人</div>
+      </div>
+      <div class="tier hot">
+        <div class="tbadge">首發名額制</div>
+        <div class="tname">陪跑加強版</div>
+        <div class="tprice">名額制・洽詢開課</div>
+        <ul>
+          <li><b style="color:#fff">影音自學版的全部</b>，再加上 ↓</li>
+          <li>1 對 1 進度檢視，盯著你不半途消失</li>
+          <li>作業／成果批改，做出真正能用的版本</li>
+          <li>提問優先回覆</li>
+          <li>結業驗收：確認你真的做出第一個成果</li>
+        </ul>
+        <a class="btn" href="#free">了解陪跑版 →</a>
+        <div class="tnote">適合：怕自己半途放棄、想有人盯著做出成果的人</div>
+      </div>
+    </div>
   </div>
 </section>
 
